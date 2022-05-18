@@ -1,0 +1,31 @@
+///////////////////////////////////////////////////////////////
+////////////////////////////CAROUSEL///////////////////////////
+
+#myCarousel{
+	height: 30em;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+///////////////////////////////////////////////////////////////
+////////////////////////////BUTTON/////////////////////////////
+#container{
+	width: 100%;
+	#login, #signup{
+		width: 50%;
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+		float: left;
+		p{
+			font-size: 150%;
+			text-align: center;
+		}
+		button{
+			display: flex;
+			margin: auto;
+			border: none;
+			font-size: 150% !important;
+		}
+	}
+}
+

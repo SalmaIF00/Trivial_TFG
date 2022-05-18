@@ -1,0 +1,57 @@
+///////////////////////////////////////////////////////////////
+//////////////////////IMPORT VARIABLES/////////////////////////
+@import 'variables.scss';
+
+///////////////////////////////////////////////////////////////
+//////////////////////IMPORT VARIABLES/////////////////////////
+@import 'index.scss';
+
+///////////////////////////////////////////////////////////////
+////////////////////////////NAVBAR/////////////////////////////
+.navbar{
+	background-color: $principal-background !important;
+	width: 100%;
+	margin: 0 !important;
+	float: right;
+	div{
+		ul{
+			li{
+				.nav-link{
+					color: $letter !important;
+				}
+			}
+		}
+		.navbar-nav-extra{
+			width: 40%;
+			list-style: none;
+			margin: 0;
+			float: right;
+			li{
+				width: 15%;
+				float: right;
+				text-align: right;
+			}
+		}
+	}
+}
+
+.navbar-brand{
+	img{
+		height: 2em;
+		width: 2em;
+	}
+}
+
+ol, ul{
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+///////////////////////////////////////////////////////////////
+////////////////////////////FOOTER/////////////////////////////
+footer{
+	height: 3em;
+	background-color: $principal-background;
+	color: $letter;
+	clear: both;
+}

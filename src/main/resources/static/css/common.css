@@ -1,0 +1,68 @@
+/****************NAVBAR***************************/
+/****************SUBJECTS***************************/
+/***********OPOSITE-COLOR-SUBJECTS******************/
+#myCarousel {
+  height: 30em;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#container {
+  width: 100%;
+}
+#container #login, #container #signup {
+  width: 50%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  float: left;
+}
+#container #login p, #container #signup p {
+  font-size: 150%;
+  text-align: center;
+}
+#container #login button, #container #signup button {
+  display: flex;
+  margin: auto;
+  border: none;
+  font-size: 150% !important;
+}
+
+.navbar {
+  background-color: black !important;
+  width: 100%;
+  margin: 0 !important;
+  float: right;
+}
+.navbar div ul li .nav-link {
+  color: white !important;
+}
+.navbar div .navbar-nav-extra {
+  width: 40%;
+  list-style: none;
+  margin: 0;
+  float: right;
+}
+.navbar div .navbar-nav-extra li {
+  width: 15%;
+  float: right;
+  text-align: right;
+}
+
+.navbar-brand img {
+  height: 2em;
+  width: 2em;
+}
+
+ol, ul {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+footer {
+  height: 3em;
+  background-color: black;
+  color: white;
+  clear: both;
+}
+
+/*# sourceMappingURL=common.css.map */
