@@ -1,0 +1,17 @@
+//////////////////////////////////////////////////////////////
+////////////////////////////GRAPHIC CHART/////////////////////
+#graphic_chart{
+	clear:both;
+	display: flex;
+	justify-content: center;
+}
+
+#graphic_chart{
+	div{
+		g:nth-child(1){
+			rect{
+				visibility: hidden;
+			}
+		}
+	}
+}
