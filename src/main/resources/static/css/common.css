@@ -52,14 +52,56 @@
   text-align: center !important;
 }
 
-#graphic_chart {
+#graphic_ranking_chart {
   clear: both;
   display: flex;
   justify-content: center;
 }
 
-#graphic_chart div g:nth-child(1) rect {
+#graphic_ranking_chart div g:nth-child(1) rect {
   visibility: hidden;
+}
+
+#data {
+  width: 50%;
+  display: flex;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+#data #data_ranking_table {
+  width: 100%;
+  text-align: center;
+}
+#data #data_ranking_table tr:nth-child(1) th:nth-child(2) {
+  width: 100%;
+  text-align: center;
+}
+
+#graphic_profile_chart {
+  width: 50%;
+  float: left;
+}
+
+#graphic_profile_chart div g:nth-child(1) rect {
+  visibility: hidden;
+}
+
+#data {
+  width: 30%;
+  display: flex;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  z-index: 1;
+}
+#data #data_profile_table {
+  width: 100%;
+  text-align: center;
+}
+#data #data_profile_table tr:nth-child(1) th:nth-child(2) {
+  width: 100%;
+  text-align: center;
 }
 
 body {
