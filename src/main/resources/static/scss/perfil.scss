@@ -1,12 +1,11 @@
 //////////////////////////////////////////////////////////////
 ////////////////////////////GRAPHIC CHART/////////////////////
-#graphic_ranking_chart{
-	clear:both;
-	display: flex;
-	justify-content: center;
+#graphic_profile_chart{
+	width: 50%;
+	float: left;
 }
 
-#graphic_ranking_chart{
+#graphic_profile_chart{
 	div{
 		g:nth-child(1){
 			rect{
@@ -20,12 +19,13 @@
 //////////////////////////////TABLE///////////////////////////
 
 #data{
-	width: 50%;
+	width: 30%;
 	display: flex;
 	margin: auto;
 	margin-top: 1em;
 	margin-bottom: 2em;
-	#data_ranking_table{
+	z-index: 1;
+	#data_profile_table{
 		width: 100%;
 		text-align: center;;
 		tr:nth-child(1){

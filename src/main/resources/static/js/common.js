@@ -1,3 +1,4 @@
 //////////////////////////////////////////////////////////////
 ////////////////////////////IMPORT JS/////////////////////////
-document.write('<script src="../../static/js/ranking.js"></script>');
+//document.write('<script src="../../static/js/ranking.js"></script>');
+//document.write('<script src="../../static/js/perfil.js"></script>');

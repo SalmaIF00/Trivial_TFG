@@ -29,9 +29,11 @@
 
 	<!-- RANKING & PROFILE CHARTS -->
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css" />
+
 	<!--IMPORT JS-->
-	<script type="text/javascript" src="../../static/js/common.js"></script>
+	<!--<script type="text/javascript" src="../../static/js/common.js"></script>-->
+	<script type="text/javascript" src="../../static/js/ranking.js"></script>
 
 	<!-- CAROUSEL -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -86,8 +88,16 @@
 	</nav>
 
 	<!--CHART-->
-	<div id="graphic_chart" style="width:400; height:300"></div>
-	<div id="data_table" style="width:400; height:300"></div>
+	<div id="graphic_ranking_chart" style="width:400; height:300"></div>
+	<table id="data" class="display table">
+		<tbody id="data_ranking_table">
+			<tr>
+				<th scope="col">Posición</th>
+				<th scope="col">Usuario</th>
+				<th scope="col">Puntuación</th>
+			</tr>
+		</tbody>
+	</table>
 
 	<!--FOOTER-->
 	<footer>
