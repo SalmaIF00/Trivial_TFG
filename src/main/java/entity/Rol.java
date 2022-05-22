@@ -1,12 +1,15 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +21,10 @@ public class Rol implements Serializable {
 	@Column(name = "id_rol")
 	private Long id_rol;
 	private String rol;
-
+	
+	// ROLES-UR-USUARIO
+	@ManyToMany(mappedBy = "roles")
+	private Set<Usuario> usuario = new HashSet<>();
 	// CONSTRUCTORES
 	
 	public Rol() {
@@ -48,9 +54,19 @@ public class Rol implements Serializable {
 	public void setRol(String rol) {
 		this.rol = rol;
 	}
+	public Set<Usuario> getUsuario() {
+		return usuario;
+	}
 
+	public void setUsuario(Set<Usuario> usuario) {
+		this.usuario = usuario;
+	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
+	public void anadirUsuario(Usuario u) {
+		
+		u.getRoles().add(this);
+		this.getUsuario().add(u);
+	}
 }

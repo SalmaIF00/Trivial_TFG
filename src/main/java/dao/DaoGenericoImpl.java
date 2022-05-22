@@ -10,13 +10,13 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 
-public abstract class DaoGenericoJDBC<T> implements DaoGenerico<T> {
+public abstract class DaoGenericoImpl<T> implements DaoGenerico<T> {
 	@PersistenceContext
 	protected EntityManager em;
 
 	private Class<T> type;
 
-	public DaoGenericoJDBC() {
+	public DaoGenericoImpl() {
 		Type t = getClass().getGenericSuperclass();
 		ParameterizedType pt = (ParameterizedType) t;
 		type = (Class) pt.getActualTypeArguments()[0];

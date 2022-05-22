@@ -1,12 +1,18 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +30,11 @@ public class Usuario implements Serializable {
 	private String nombre_usuario;
 	private String password;
 	private String rol;
+
+	// USUARIOS-UR-ROLES
+	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinTable(name = "UR", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
+	private Set<Rol> roles = new HashSet<>();
 
 	// CONSTRUCTORES
 	public Usuario() {
@@ -90,8 +101,22 @@ public class Usuario implements Serializable {
 		this.rol = rol;
 	}
 
+	public Set<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Rol> roles) {
+		this.roles = roles;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
+	public void anadirRol(Rol rol) {
+
+		rol.getUsuario().add(this);
+
+		this.getRoles().add(rol);
+	}
 }
