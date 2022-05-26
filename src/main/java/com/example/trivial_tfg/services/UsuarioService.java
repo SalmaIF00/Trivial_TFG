@@ -1,6 +1,7 @@
 package com.example.trivial_tfg.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.trivial_tfg.entity.Usuario;
 
@@ -11,7 +12,7 @@ public interface UsuarioService {
 	
 	List<Usuario> listarUsuario();
 
-	Usuario buscarUsuarioId(Long id_usuario);
+	Optional<Usuario> buscarUsuarioId(Long id_usuario);
 
 	Usuario buscarNomYPwd(String nombre, String pwd);
 

@@ -1,13 +1,15 @@
 package com.example.trivial_tfg.services;
 
 
+import java.util.Optional;
+
 import com.example.trivial_tfg.entity.Pregunta;
 
 public interface PreguntaService{
 	
 	 Pregunta crearPregunta(Pregunta pregunta);
 		
-	 Pregunta buscarPregunta(Long id_pregunta);
+	 Optional<Pregunta> buscarPregunta(Long id_pregunta);
 	
 	 Pregunta actualizarPregunta(Pregunta pregunta);
 	

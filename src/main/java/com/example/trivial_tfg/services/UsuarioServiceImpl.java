@@ -1,24 +1,25 @@
 package com.example.trivial_tfg.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.trivial_tfg.dao.RolDao;
-import com.example.trivial_tfg.dao.UsuarioDao;
 import com.example.trivial_tfg.entity.Usuario;
+import com.example.trivial_tfg.repository.RolRepository;
+import com.example.trivial_tfg.repository.UsuarioRepository;
 
 @Transactional
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 	@Autowired
-	private UsuarioDao usuarioDao;
+	private UsuarioRepository usuarioRepository;
 
 	@Autowired
-	private RolDao rolDao;
+	private RolRepository rolRepository;
 
 //	@Autowired
 //	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -26,35 +27,35 @@ public class UsuarioServiceImpl implements UsuarioService {
 //	@Override
 //	public List<Usuario> listarUsuario() {
 //
-//		return usuarioDao.findAll();
+//		return usuarioRepository.findAll();
 //	}
 
 	@Override
-	public Usuario buscarUsuarioId(Long id_usuario) {
+	public Optional<Usuario> buscarUsuarioId(Long id_usuario) {
 
-		return usuarioDao.buscar(id_usuario);
+		return usuarioRepository.findById(id_usuario);
 	}
 
 	@Override
 	public Usuario buscarNomYPwd(String nombre, String pwd) {
 
-		return usuarioDao.findByNameAndPass(nombre, pwd);
+		return usuarioRepository.findByNameAndPass(nombre, pwd);
 	}
 
 	@Override
 	public Usuario buscarNombreUsuario(String nombre_usuario) {
 
-		return usuarioDao.findByUserName(nombre_usuario);
+		return usuarioRepository.findByUserName(nombre_usuario);
 	}
 
 	@Override
 	public Usuario actualizarUsuario(Usuario usuario) {
-		return usuarioDao.actualizar(usuario);
+		return usuarioRepository.save(usuario);
 	}
 
 	@Override
 	public void borrarUsuario(Long id_usuario) {
-		usuarioDao.borrar(id_usuario);
+		usuarioRepository.deleteById(id_usuario);
 
 	}
 
@@ -72,8 +73,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 //	@Override
 //	public void asignarRol(Long id_usuario, Long id_rol) {
-//		Usuario usuario1 = usuarioDao.buscar(id_usuario);
-//		rolDao.saveUR(id_rol, usuario1.getId_usuario());
+//		Usuario usuario1 = usuarioRepository.buscar(id_usuario);
+//		rolRepository.saveUR(id_rol, usuario1.getId_usuario());
 //	}
 //
 //	@Override
@@ -83,10 +84,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 //		Usuario usuario1 = new Usuario(null, nombre, apellidos, nombre_usuario, bCryptPasswordEncoder.encode(password),
 //				rol);
 //
-//		Rol rol_c = rolDao.buscar(2);
+//		Rol rol_c = rolRepository.buscar(2);
 //		usuario1.anadirRol(rol_c);
 //
-//		return usuarioDao.crear(usuario1);
+//		return usuarioRepository.crear(usuario1);
 //	}
 
 

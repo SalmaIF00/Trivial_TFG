@@ -1,40 +1,42 @@
 package com.example.trivial_tfg.services;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.trivial_tfg.dao.PreguntaDao;
 import com.example.trivial_tfg.entity.Pregunta;
+import com.example.trivial_tfg.repository.PreguntaRepository;
 
 @Transactional
 @Service
 public class PreguntaServiceImpl implements PreguntaService {
 	@Autowired
-	private PreguntaDao preguntaDao;
+	private PreguntaRepository preguntaRepository;
 
 	@Override
 	public Pregunta crearPregunta(Pregunta pregunta) {
 		
-		return preguntaDao.crear(pregunta);
+		return preguntaRepository.save(pregunta);
 	}
 
 	@Override
-	public Pregunta buscarPregunta(Long id_pregunta) {
+	public Optional<Pregunta> buscarPregunta(Long id_pregunta) {
 		
-		return preguntaDao.buscar(id_pregunta);
+		return preguntaRepository.findById(id_pregunta);
 	}
 
 	@Override
 	public Pregunta actualizarPregunta(Pregunta pregunta) {
 		
-		return preguntaDao.actualizar(pregunta);
+		return preguntaRepository.save(pregunta);
 	}
 
 	@Override
 	public void borrarPregunta(Long id_pregunta) {
-		preguntaDao.borrar(id_pregunta);
+		preguntaRepository.deleteById(id_pregunta);
 		
 	}
 
