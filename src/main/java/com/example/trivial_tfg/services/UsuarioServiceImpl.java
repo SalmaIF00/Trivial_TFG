@@ -36,17 +36,17 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return usuarioRepository.findById(id_usuario);
 	}
 
-	@Override
-	public Usuario buscarNomYPwd(String nombre, String pwd) {
+//	@Override
+//	public Usuario buscarNomYPwd(String nombre, String pwd) {
+//
+//		return usuarioRepository.findByNameAndPass(nombre, pwd);
+//	}
 
-		return usuarioRepository.findByNameAndPass(nombre, pwd);
-	}
-
-	@Override
-	public Usuario buscarNombreUsuario(String nombre_usuario) {
-
-		return usuarioRepository.findByUserName(nombre_usuario);
-	}
+//	@Override
+//	public Usuario buscarNombreUsuario(String nombre_usuario) {
+//
+//		return usuarioRepository.findByUserName(nombre_usuario);
+//	}
 
 	@Override
 	public Usuario actualizarUsuario(Usuario usuario) {
@@ -59,17 +59,29 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	}
 
-	@Override
-	public List<Usuario> listarUsuario() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void asignarRol(Long id_usuario, Long id_rol) {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public List<Usuario> listarUsuario() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public void asignarRol(Long id_usuario, Long id_rol) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public Usuario buscarNomYPwd(String nombre, String pwd) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Usuario buscarNombreUsuario(String nombre_usuario) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 //	@Override
 //	public void asignarRol(Long id_usuario, Long id_rol) {
