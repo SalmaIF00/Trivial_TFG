@@ -1,0 +1,15 @@
+package com.example.trivial_tfg.services;
+
+import com.example.trivial_tfg.entity.Respuesta;
+
+public interface RespuestaService{
+	
+	Respuesta crearRespuesta(Respuesta respuesta);
+	
+	Respuesta buscarRespuesta(Long id_respuesta);
+	
+	Respuesta actualizarRespuesta(Respuesta respuesta);
+	
+	void borrarRespuesta(Long id_respuesta);
+
+}
