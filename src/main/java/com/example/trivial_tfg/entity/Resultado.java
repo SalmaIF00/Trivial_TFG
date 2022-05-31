@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,11 @@ public class Resultado implements Serializable {
 	private Long id_usuario;
 	private String resultado;
 
+	//RESULTADO-USUARIO
+	@ManyToOne
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
+	
 	// CONSTRUCTORES
 
 	public Resultado() {

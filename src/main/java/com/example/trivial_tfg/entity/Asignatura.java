@@ -1,12 +1,18 @@
 package com.example.trivial_tfg.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,8 +27,16 @@ public class Asignatura implements Serializable {
 	private Long id_curso;
 	private String nombre_asignatura;
 
-	// CONSTRUCTORES
+	//ASIGNATURAS-CURSO
+	@ManyToOne
+	@JoinColumn(name = "id_curso")
+	private Curso curso;
 
+	//ASIGNATURA-PREGUNTA
+	@OneToMany(mappedBy = "asignatura",cascade = CascadeType.ALL,orphanRemoval = true)
+	private Set<Pregunta> pregunta = new HashSet<>();
+	
+	// CONSTRUCTORES
 	public Asignatura() {
 		super();
 	}
@@ -34,8 +48,8 @@ public class Asignatura implements Serializable {
 		this.nombre_asignatura = nombre_asignatura;
 	}
 
-	//GETTERS Y SETTERS
-	
+	// GETTERS Y SETTERS
+
 	public Long getId_asignatura() {
 		return id_asignatura;
 	}
