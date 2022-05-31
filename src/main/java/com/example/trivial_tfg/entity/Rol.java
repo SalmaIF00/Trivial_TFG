@@ -13,7 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "rol")
+@Table(name = "rol ")
 public class Rol implements Serializable {
 	private static final long serialVersionUID = -8668594760203621162L;
 	@Id
@@ -22,16 +22,16 @@ public class Rol implements Serializable {
 	private Long id_rol;
 	private String rol;
 
-	// ROLES-UR-USUARIO
+	// ROLES-USUARIO/ROL-USUARIO
 	@ManyToMany(mappedBy = "roles")
 	private Set<Usuario> usuario = new HashSet<>();
 
-	// CONSTRUCTORES
-
+	// MÉTODO CONSTRUCTOR VACÍO
 	public Rol() {
 		super();
 	}
 
+	// MÉTODO CONSTRUCTOR
 	public Rol(Long id_rol, String rol) {
 		super();
 		this.id_rol = id_rol;

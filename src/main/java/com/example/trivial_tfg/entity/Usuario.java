@@ -17,7 +17,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
-
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = -8668594760203621162L;
 	@Id
@@ -33,14 +32,15 @@ public class Usuario implements Serializable {
 
 	// USUARIOS-UR-ROLES
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "UR", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
+	@JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
 	private Set<Rol> roles = new HashSet<>();
 
-	// CONSTRUCTORES
+	// MÉTODO CONSTRUCTOR VACÍO
 	public Usuario() {
 		super();
 	}
 
+	// MÉTODO CONSTRUCTOR CON PARÁMETROS
 	public Usuario(Long id_usuario, String nombre, String apellidos, String nombre_usuario, String password,
 			String rol) {
 		super();
