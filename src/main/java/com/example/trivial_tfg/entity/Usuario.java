@@ -7,12 +7,15 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -35,7 +38,20 @@ public class Usuario implements Serializable {
 	@JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
 	private Set<Rol> roles = new HashSet<>();
 
+<<<<<<< HEAD
 	// MÉTODO CONSTRUCTOR VACÍO
+=======
+	// USUARIO-CURSO
+	@ManyToOne
+	@JoinColumn(name = "id_curso")
+	private Curso curso;
+
+	// USUARIO-RESULTADO
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Resultado> resultado = new HashSet<>();
+
+	// CONSTRUCTORES
+>>>>>>> branch 'master' of https://github.com/SalmaIF00/Trivial_TFG.git
 	public Usuario() {
 		super();
 	}

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,11 @@ public class Respuesta implements Serializable {
 	private Long id_pregunta;
 	private String respuesta;
 
+	//RESPUESTA- PREGUNTA
+	@ManyToOne
+	@JoinColumn(name = "id_pregunta")
+	private Pregunta pregunta;
+	
 	// CONSTRUCTORES
 	public Respuesta() {
 		super();
