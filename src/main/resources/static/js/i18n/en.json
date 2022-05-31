@@ -1,4 +1,22 @@
 {	
 	"app-title": "Trivial",
-	"inicio" : "Home"
+	"inicio" : "HOME",
+	"asignaturas": "SUBJECTS",
+	"sesion": "LOG IN",
+	"registro": "SIGN UP",
+	"perfil": "Profile",
+	"config": "Settings",
+	"cerrar_sesion": "Log out",
+	"inicio_sesion": "Log in",
+	"usuario": "User",
+	"pwd": "Password",
+	"iniciar": "Enter",
+	"registrar": "Sign up",
+	"nombre": "Name",
+	"apellidos":"Middle name",
+	"nom_usuario":"User name",
+	"pwd_usuario":"Password",
+	"curso":"Grade",
+	"primero":"First",
+	"segundo":"Second"
 }

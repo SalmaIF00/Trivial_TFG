@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<!--IMPORT BOOTSTRAP CSS-->
@@ -7,6 +6,8 @@
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<!--IMPORT BOOTSTRAP JS-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>
@@ -18,35 +19,15 @@
 		crossorigin="anonymous"></script>
 
 	<!--IMPORT CSS-->
-	<link rel="stylesheet" th:href="@{/css/common.css}" />
-	<link rel="stylesheet" th:href="@{/css/carousel.css}">
-	
-	<!-- CAROUSEL -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../../static/css/common.css" />
 
-	<!-- INTERNALIZATION -->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script th:src="@{/js/lib/CLDRPluralRuleParser/CLDRPluralRuleParser.js}"></script>
-	<script th:src="@{/js/lib/jquery-i18n/jquery.i18n.js}"></script>
-	<script th:src="@{/js/lib/jquery-i18n/jquery.i18n.messagestore.js}"></script>
-	<script th:src="@{/js/lib/jquery-i18n/jquery.i18n.fallbacks.js}"></script>
-	<script th:src="@{/js/lib/jquery-i18n/jquery.i18n.language.js}"></script>
-	<script th:src="@{/js/lib/jquery-i18n/jquery.i18n.parser.js}"></script>
-	<script th:src="@{/js/lib/jquery-i18n/jquery.i18n.emitter.js}"></script>
-	<script th:src="@{/js/lib/jquery-i18n/jquery.i18n.emitter.bidi.js}"></script>
-
-	<script th:src="@{/js/lib/history/jquery.history.js}"></script>
-	<script th:src="@{/js/lib/url/url.min.js}"></script>
-	<script th:src="@{/js/global.js}"></script>
-
+	<script type="text/javascript" src="../../static/js/ruleta.js"></script>
 </head>
 
 <body>
 	<!--NAVBAR-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" th:href="@{/index}"><img th:src="@{/img/logo.png}" alt="logo" /></a>
+		<a class="navbar-brand" href="./index.html"><img src="../../static/img/logo.png" alt="logo" /></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
 			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -54,7 +35,7 @@
 		<div class="collapse navbar-collapse" id="navbarText">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" th:href="@{/index}" data-i18n="inicio">Inicio <span
+					<a class="nav-link" href="./index.html" data-i18n="inicio">Inicio <span
 							class="sr-only">(current)</span></a>
 				</li>
 				<!-- Ocultar si el usuario no ha iniciado sesión-->
@@ -63,10 +44,10 @@
 				</li>
 				<!-- Ocultar si el usuario no ha iniciado sesión-->
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/ranking}">RANKING</a>
+					<a class="nav-link" href="./ranking.html"">RANKING</a>
 				</li>
 			</ul>
-			<ul class="navbar-nav mr-auto">
+			<ul class=" navbar-nav mr-auto">
 				<li class="nav-item active">
 					<a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin" data-i18n="sesion">INICIO
 						SESIÓN</a>
@@ -82,9 +63,9 @@
 
 				<!-- Ocultar si el usuario no ha iniciado sesión-->
 				<div class="dropdown">
-					<img th:src="@{/img/perfil.png}" class="nav-link" alt="perfil" id="perfil_img" />
+					<img src="../../static/img/perfil.png" class="nav-link" alt="perfil" id="perfil_img" />
 					<div class="dropdown-content dropdown-menu-right">
-						<a class="nav-link" th:href="@{/perfil}" data-i18n="perfil">
+						<a class="nav-link" href="./perfil.html" data-i18n="perfil">
 							<p>Mi perfil</p>
 						</a>
 						<p data-toggle="modal" data-target="#settings" data-i18n="config">Configuración</p>
@@ -183,4 +164,16 @@
 
 		</div>
 	</div>
+
+	<!--RULETA 1-->
+	<div class="roulette" style="display:none;">
+		<span id="asignatura_1">Lenguaje de Marcas</span>
+		<span id="asignatura_2">Programación</span>
+		<span id="asignatura_3">FOL</span>
+		<span id="asignatura_4">Entornos de Desarrollo</span>
+		<span id="asignatura_5">Bases de Datos</span>
+		<span id="asignatura_6">Sistemas Informáticos</span>
+	</div>
 </body>
+
+</html>

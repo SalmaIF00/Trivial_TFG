@@ -11,6 +11,15 @@
   margin: 0 !important;
   clear: both;
 }
+#myCarousel .carousel-inner {
+  height: 30em !important;
+}
+#myCarousel .carousel-inner div {
+  height: 30em;
+}
+#myCarousel .carousel-inner div #imagen_1 {
+  background-color: red;
+}
 
 #container {
   width: 100%;
