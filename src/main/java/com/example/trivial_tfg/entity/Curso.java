@@ -11,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,47 +25,37 @@ public class Curso implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_curso")
 	private Long id_curso;
-	private Long id_usuario;
 	private String curso;
 
-	//CURSO-ASIGNATURA
-		@OneToMany(fetch = FetchType.EAGER, mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true)
-		private Set<Asignatura> asignaturas = new HashSet<>();
+	// CURSO-ASIGNATURA
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Asignatura> asignaturas = new HashSet<>();
 
-		//CURSO-USUARIOS
-		@OneToMany(fetch = FetchType.EAGER, mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true)
-		private Set<Usuario> usuarios = new HashSet<>();
+	// USUARIO-CURSO
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "curso", cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Usuario> usuario = new HashSet<>();
 
-	//RESULTADO- USUARIO
-		
-		
 	// CONSTRUCTORES
 	public Curso() {
 		super();
 	}
 
-	public Curso(Long id_curso, Long id_usuario, String curso) {
+	// MÉTODO CONSTRUCTOR
+	public Curso(Long id_curso, String curso, Set<Asignatura> asignaturas, Set<Usuario> usuario) {
 		super();
 		this.id_curso = id_curso;
-		this.id_usuario = id_usuario;
 		this.curso = curso;
+		this.asignaturas = asignaturas;
+		this.usuario = usuario;
 	}
-	// GETTERS Y SETTERS
 
+	// GETTERS Y SETTERS
 	public Long getId_curso() {
 		return id_curso;
 	}
 
 	public void setId_curso(Long id_curso) {
 		this.id_curso = id_curso;
-	}
-
-	public Long getId_usuario() {
-		return id_usuario;
-	}
-
-	public void setId_usuario(Long id_usuario) {
-		this.id_usuario = id_usuario;
 	}
 
 	public String getCurso() {
@@ -74,8 +66,20 @@ public class Curso implements Serializable {
 		this.curso = curso;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public Set<Asignatura> getAsignaturas() {
+		return asignaturas;
+	}
+
+	public void setAsignaturas(Set<Asignatura> asignaturas) {
+		this.asignaturas = asignaturas;
+	}
+
+	public Set<Usuario> getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Set<Usuario> usuario) {
+		this.usuario = usuario;
 	}
 
 }

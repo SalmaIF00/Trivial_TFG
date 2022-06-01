@@ -41,9 +41,9 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 		boolean isAdmin = false;
 		final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		for (final GrantedAuthority grantedAuthority : authorities) {
-			if (grantedAuthority.getAuthority().equals("UsuarioR")) {
+			if (grantedAuthority.getAuthority().equals("Alumno")) {
 				isUsuario = true;
-				session.setAttribute("usuario.rol", grantedAuthority.getAuthority().equals("UsuarioR"));
+				session.setAttribute("usuario.rol", grantedAuthority.getAuthority().equals("Alumno"));
 				break;
 			} else if (grantedAuthority.getAuthority().equals("Administrador")) {
 				isAdmin = true;
@@ -54,9 +54,9 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 
 		String targetUrl;
 		if (isUsuario) {
-			targetUrl = "/index";
+			targetUrl = "/ranking";
 		} else if (isAdmin) {
-			targetUrl = "/crear";
+			targetUrl = "/ranking";
 		} else {
 			throw new IllegalStateException();
 		}

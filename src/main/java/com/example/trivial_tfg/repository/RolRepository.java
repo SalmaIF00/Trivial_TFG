@@ -9,7 +9,4 @@ import com.example.trivial_tfg.entity.Rol;
 @Repository
 public interface RolRepository extends JpaRepository<Rol, Long> {
 //	int saveUR(Long id_usuario, Long id_rol);
-	
-	@Query("from Rol where id_rol = :id")
-	Rol findById(int i);
 }

@@ -38,10 +38,7 @@ public class Usuario implements Serializable {
 	@JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
 	private Set<Rol> roles = new HashSet<>();
 
-<<<<<<< HEAD
-	// MÉTODO CONSTRUCTOR VACÍO
-=======
-	// USUARIO-CURSO
+	// CURSO-USUARIOS
 	@ManyToOne
 	@JoinColumn(name = "id_curso")
 	private Curso curso;
@@ -50,15 +47,26 @@ public class Usuario implements Serializable {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Resultado> resultado = new HashSet<>();
 
-	// CONSTRUCTORES
->>>>>>> branch 'master' of https://github.com/SalmaIF00/Trivial_TFG.git
+	// MÉTODO CONSTRUCTOR VACÍO
 	public Usuario() {
 		super();
 	}
+	
+	//MÉTODO CONSTRUCTOR PARA GUARDAR USUARIO
+	public Usuario(Long id_usuario, Curso curso, String nombre, String apellidos, String nombre_usuario, String password, String rol) {
+		super();
+		this.id_usuario = id_usuario;
+		this.curso = curso;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.nombre_usuario = nombre_usuario;
+		this.password = password;
+		this.rol = rol;
+	}
 
 	// MÉTODO CONSTRUCTOR CON PARÁMETROS
-	public Usuario(Long id_usuario, String nombre, String apellidos, String nombre_usuario, String password,
-			String rol) {
+	public Usuario(Long id_usuario, String nombre, String apellidos, String nombre_usuario, String password, String rol,
+			Set<Rol> roles, Curso curso, Set<Resultado> resultado) {
 		super();
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
@@ -66,6 +74,9 @@ public class Usuario implements Serializable {
 		this.nombre_usuario = nombre_usuario;
 		this.password = password;
 		this.rol = rol;
+		this.roles = roles;
+		this.curso = curso;
+		this.resultado = resultado;
 	}
 
 	// GETTERS Y SETTERS
@@ -123,6 +134,22 @@ public class Usuario implements Serializable {
 
 	public void setRoles(Set<Rol> roles) {
 		this.roles = roles;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+	public Set<Resultado> getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(Set<Resultado> resultado) {
+		this.resultado = resultado;
 	}
 
 	public void anadirRol(Rol rol) {

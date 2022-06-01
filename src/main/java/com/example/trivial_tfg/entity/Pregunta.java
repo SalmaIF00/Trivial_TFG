@@ -25,14 +25,13 @@ public class Pregunta implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_pregunta")
 	private Long id_pregunta;
-	private Long id_asignatura;
 	private String pregunta;
 
 	
 	//PREGUNTA-ASIGNATURA
 	@ManyToOne
-	@JoinColumn(name = "id_curso")
-	private Curso curso;
+	@JoinColumn(name = "id_asignatura")
+	private Asignatura asignatura;
 	
 	//PREGUNTA-RESPUESTA
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pregunta", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -44,10 +43,9 @@ public class Pregunta implements Serializable {
 		super();
 	}
 
-	public Pregunta(Long id_pregunta, Long id_asignatura, String pregunta) {
+	public Pregunta(Long id_pregunta, String pregunta) {
 		super();
 		this.id_pregunta = id_pregunta;
-		this.id_asignatura = id_asignatura;
 		this.pregunta = pregunta;
 	}
 
@@ -58,14 +56,6 @@ public class Pregunta implements Serializable {
 
 	public void setId_pregunta(Long id_pregunta) {
 		this.id_pregunta = id_pregunta;
-	}
-
-	public Long getId_asignatura() {
-		return id_asignatura;
-	}
-
-	public void setId_asignatura(Long id_asignatura) {
-		this.id_asignatura = id_asignatura;
 	}
 
 	public String getPregunta() {

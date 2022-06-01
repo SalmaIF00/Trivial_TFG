@@ -24,8 +24,6 @@ public class CursoServiceImpl implements CursoService{
 		return cursoRepository.save(curso);
 	}
 
-
-
 	@Override
 	public Curso actualizarCurso(Curso curso) {
 		
@@ -42,5 +40,6 @@ public class CursoServiceImpl implements CursoService{
 	public Optional<Curso> buscarCurso(Long id_curso) {
 		return cursoRepository.findById(id_curso);
 	}
+
 
 }

@@ -20,7 +20,7 @@
 	<!--IMPORT CSS-->
 	<link rel="stylesheet" th:href="@{/css/common.css}" />
 	<link rel="stylesheet" th:href="@{/css/carousel.css}">
-	
+
 	<!-- CAROUSEL -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -40,7 +40,7 @@
 	<script th:src="@{/js/lib/history/jquery.history.js}"></script>
 	<script th:src="@{/js/lib/url/url.min.js}"></script>
 	<script th:src="@{/js/global.js}"></script>
-	
+
 	<!-- JS -->
 	<script th:src="@{/js/usuario.js}"></script>
 
@@ -111,16 +111,17 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body modal-login">
-					<form>
+					<form th:action="@{/sesion}" method="POST">
 						<label for="username" data-i18n="usuario">Nombre de usuario</label><br />
-						<input type="text" id="username" name="username"><br />
+						<input type="text" id="username" name="nombre_usuario"><br />
 						<label for="password" data-i18n="pwd">Contraseña</label><br />
 						<input type="text" id="password" name="password"><br />
+					 <input type="submit" class="btn btn-default submit" value="Iniciar Sesión" />
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default submit" data-dismiss="modal"
-						data-i18n="iniciar">Iniciar</button>
+					<!--<button type="button" class="btn btn-default submit" data-dismiss="modal"
+						data-i18n="iniciar">Iniciar</button>-->
 				</div>
 			</div>
 
@@ -139,7 +140,7 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body modal-singup">
-					<form>
+					<form th:action="@{/registro}" method="POST">
 						<label for="nombre" data-i18n="nombre">Nombre</label><br />
 						<input type="text" id="nombre" name="nombre"><br />
 						<label for="apellidos" data-i18n="apellidos">Apellidos</label><br />
@@ -149,13 +150,13 @@
 						<label for="password" data-i18n="pwd_usuario">Contraseña</label><br />
 						<input type="text" id="password" name="password"><br />
 						<label for="curso" data-i18n="curso">Curso</label><br />
-						<input type="radio" id="curso" name="curso" value="primero" data-i18n="primero">Primero<br />
-						<input type="radio" id="curso" name="curso" value="segundo" data-i18n="segundo">Segundo<br />
+						<input type="radio" name="curso" value="1" data-i18n="primero">Primero<br />
+						<input type="radio" name="curso" value="2" data-i18n="segundo">Segundo<br />
+						<input type="submit" class="btn btn-default submit" value="Registrarse" />
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default submit" data-dismiss="modal" id="registrar_usuario"
-						data-i18n="registrar">Registrar</button>
+					<button type="button">Registrar</button>
 				</div>
 			</div>
 

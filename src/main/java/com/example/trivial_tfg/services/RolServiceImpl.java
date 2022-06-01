@@ -24,8 +24,9 @@ public class RolServiceImpl implements RolService {
 	}
 
 	@Override
-	public Optional<Rol> buscarRol(Long id_rol) {
-		return rolRepository.findById(id_rol);
+	public Rol buscarRol(Long id_rol) {
+		return rolRepository.getById(id_rol);
+
 	}
 
 	@Override

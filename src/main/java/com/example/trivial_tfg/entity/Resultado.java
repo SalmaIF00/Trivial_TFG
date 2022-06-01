@@ -19,7 +19,6 @@ public class Resultado implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_resultado")
 	private Long id_resultado;
-	private Long id_usuario;
 	private String resultado;
 
 	//RESULTADO-USUARIO
@@ -34,10 +33,9 @@ public class Resultado implements Serializable {
 
 	}
 
-	public Resultado(Long id_resultado, Long id_usuario, String resultado) {
+	public Resultado(Long id_resultado, String resultado) {
 		super();
 		this.id_resultado = id_resultado;
-		this.id_usuario = id_usuario;
 		this.resultado = resultado;
 	}
 
@@ -48,14 +46,6 @@ public class Resultado implements Serializable {
 
 	public void setId_resultado(Long id_resultado) {
 		this.id_resultado = id_resultado;
-	}
-
-	public Long getId_usuario() {
-		return id_usuario;
-	}
-
-	public void setId_usuario(Long id_usuario) {
-		this.id_usuario = id_usuario;
 	}
 
 	public String getResultado() {

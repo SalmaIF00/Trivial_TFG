@@ -20,7 +20,6 @@ public class Respuesta implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_respuesta")
 	private Long id_respuesta;
-	private Long id_pregunta;
 	private String respuesta;
 
 	//RESPUESTA- PREGUNTA
@@ -33,10 +32,9 @@ public class Respuesta implements Serializable {
 		super();
 	}
 
-	public Respuesta(Long id_respuesta, Long id_pregunta, String respuesta) {
+	public Respuesta(Long id_respuesta, String respuesta) {
 		super();
 		this.id_respuesta = id_respuesta;
-		this.id_pregunta = id_pregunta;
 		this.respuesta = respuesta;
 	}
 
@@ -47,14 +45,6 @@ public class Respuesta implements Serializable {
 
 	public void setId_respuesta(Long id_respuesta) {
 		this.id_respuesta = id_respuesta;
-	}
-
-	public Long getId_pregunta() {
-		return id_pregunta;
-	}
-
-	public void setId_pregunta(Long id_pregunta) {
-		this.id_pregunta = id_pregunta;
 	}
 
 	public String getRespuesta() {
