@@ -17,7 +17,6 @@ align-items: center;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    transition-duration: 0.4s;
     cursor: pointer;
 
  
@@ -28,21 +27,21 @@ div:hover{
  
 }
 
-#div_1{
-    background: rgb(0,168,255);
+#asignaturas:nth-child(1){
+	background: rgb(0,168,255);
     background: linear-gradient(0deg, rgba(0,168,255,1) 0%, rgba(45,63,253,1) 100%);
 }
 
-#div_1:hover{
+#asignaturas:nth-child(1):hover{
     background: rgba(45,63,253,1);
 }
 
-#div_2{
+#asignaturas:nth-child(2){
     background: rgb(255,0,104);
     background: linear-gradient(0deg, rgba(255,0,104,1) 0%, rgba(253,45,45,1) 100%);
 }
 
-#div_2:hover{
+#asignaturas:nth-child(2):hover{
     background: rgb(255, 0, 0);
 }
 

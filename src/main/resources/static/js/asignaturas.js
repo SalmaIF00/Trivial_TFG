@@ -18,12 +18,29 @@ function Colordiv6() {
 	document.getElementById("navbar").style.backgroundColor = "rgba(255,125,11,1)";
 }
 
+function obtenerOfertas() {
+	var id_asignatura= document.getElementById("id_asignaturas").value;
+	
+
+	fetch('/mostrarPreguntas/'+id_asignatura, { headers: { "Content-Type": "application/json; charset=utf-8" } })
+		.then(res => res.json())
+		.then(response => {
+
+//			for (let oferta of response) {
+//				var tr = crearFila(oferta);
+//				//añado fila
+//				tbody.appendChild(tr);
+//			}
+		})
+}
+
+
 document.addEventListener("DOMContentLoaded", function() {
-	$("#div_1").click(Colordiv1);
-	$("#div_2").click(Colordiv2);
-	$("#div_3").click(Colordiv3);
-	$("#div_4").click(Colordiv4);
-	$("#div_5").click(Colordiv5);
-	$("#div_6").click(Colordiv6);
+	$("#asignaturas").click(obtenerOfertas);
+//	$("#div_2").click(Colordiv2);
+//	$("#div_3").click(Colordiv3);
+//	$("#div_4").click(Colordiv4);
+//	$("#div_5").click(Colordiv5);
+//	$("#div_6").click(Colordiv6);
 
 });

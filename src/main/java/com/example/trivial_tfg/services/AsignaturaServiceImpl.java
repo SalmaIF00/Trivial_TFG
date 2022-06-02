@@ -1,6 +1,7 @@
 package com.example.trivial_tfg.services;
 
 import java.util.Optional;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -39,6 +40,12 @@ public class AsignaturaServiceImpl implements AsignaturaService {
 	public void borrarAsignatura(Long id_asignatura) {
 		asignaturaRepository.deleteById(id_asignatura);
 
+	}
+
+	@Override
+	public Set<Asignatura> buscarCurso(Long id_curso) {
+		return asignaturaRepository.findByIdCurso(id_curso);
+		
 	}
 
 }
