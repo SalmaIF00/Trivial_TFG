@@ -21,15 +21,25 @@ import com.example.trivial_tfg.services.PreguntaService;
 public class PreguntaController {
 	@Autowired
 	private PreguntaService preguntaService;
+
+	// CONTROLADOR MOSTRAR PREGUNTAS ALEATORIAS
+	/**
+	 * Guiarse con el springQuiz, cada muestra de pregunta era un controlador distinto
+	 * Intentar hacer un controlador por pregunta, almacenando el id_pregunta en un array estático
+	 * Dicho array no podrá repetirse (if id_pregunta != array) se almacena y se muestra.
+	 * 
+	 * @return
+	 */
 	@GetMapping("/preguntas_opciones")
 	public String ranking() {
 
 		return "html/preguntas_opciones";
 	}
-	
+
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.GET, value = "/mostrarPreguntas/{id_asignatura}")
-	public Set<Pregunta> mostrarPregunta(Model model, HttpSession session, @PathVariable(value = "id_asignatura") Long id_asignatura) {
+	public Set<Pregunta> mostrarPregunta(Model model, HttpSession session,
+			@PathVariable(value = "id_asignatura") Long id_asignatura) {
 		Set<Pregunta> preguntas = preguntaService.listarPreguntas(id_asignatura);
 		return preguntas;
 	}

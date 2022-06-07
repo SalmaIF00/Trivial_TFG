@@ -17,23 +17,18 @@ import com.example.trivial_tfg.services.CursoService;
 @Controller
 public class AsignaturaController {
 	@Autowired
-	private  AsignaturaService asignaturaService;
-	
-	@Autowired
-	private CursoService cursoService;
-	
+	private AsignaturaService asignaturaService;
+
+	// CONTROLADOR PARA OBTENER LAS ASIGNATURAS SEGÚN EL CURSO - OK
 	@GetMapping("/asignaturas")
-	public String mostrarAsignaturas(Model model,HttpSession session) {
+	public String mostrarAsignaturas(Model model, HttpSession session) {
 		Usuario u = (Usuario) session.getAttribute("usuario");
 		Long id_curso = u.getCurso().getId_curso();
-		
+
 		Set<Asignatura> asignaturas = asignaturaService.buscarCurso(id_curso);
-		
-		model.addAttribute("asignaturas",asignaturas);
+
+		model.addAttribute("asignaturas", asignaturas);
 		return "html/asignaturas";
 	}
-	
+
 }
-
-
-

@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class IndexController {
-	
+
+	// CONTROLADOR MOSTRAR INDEX - OK
 	@GetMapping(value = { "/index", "/" })
 	public String getIndex() {
 

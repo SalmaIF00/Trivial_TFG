@@ -9,4 +9,6 @@ import com.example.trivial_tfg.services.RespuestaService;
 public class RespuestaController {
 	@Autowired
 	private  RespuestaService respuestaService;
+	
+	//NO SERÍA NECESARIO, LA MUESTRA DE RESPUESTA SALEN TAMBIÉN DEL CONTROLADOR DE LA MUESTRA DE PREGUNTAS
 }
