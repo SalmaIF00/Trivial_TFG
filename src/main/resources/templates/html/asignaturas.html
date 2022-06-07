@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Asignaturas.css">
+    
+	<script type="text/javascript" th:src="@{/js/asignaturas.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/Asignaturas.css}">
     <title>Asignaturas</title>
 </head>
 <body>
   <!--HEADER-->
 	<nav th:replace="html/navbar"></nav>
     <!--ASIGNATURAS-->
-    <span id="container">
-    <div id="div_1" class="boton_asignatura">
-        <p> PROGRAMACION</p>
-    </div>
-    <div id="div_2" class="boton_asignatura">
+    <span id="container" th:each="asignatura:${asignaturas}">
+	    <div id="asignaturas" class="boton_asignatura">
+	    	<p id="id_asignaturas" th:text="${asignatura.id_asignatura}">
+	        <p th:text="${asignatura.nombre_asignatura}"></p>
+	    </div>
+  <!--   <div id="div_2" class="boton_asignatura">
         <p>LENGUAJE DE MARCAS</p>
     </div>
     <div  id="div_3" class="boton_asignatura">
@@ -28,8 +31,8 @@
         <p>SISTEMAS INFORMATICOS</p>
     </div>
     <div id="div_6" class="boton_asignatura">
-        <p>FORMACION Y ORIENTACION LABORAL</p>
-    </div>
+        <p >FORMACION Y ORIENTACION LABORAL</p>
+    </div> -->
     </span>
     
        

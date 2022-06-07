@@ -9,4 +9,6 @@ import com.example.trivial_tfg.services.RolService;
 public class RolController {
 	@Autowired
 	private RolService rolService;
+
+	// POSIBLEMENTE NO SEA NECESARIO
 }

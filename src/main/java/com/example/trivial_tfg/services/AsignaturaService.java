@@ -1,6 +1,7 @@
 package com.example.trivial_tfg.services;
 
 import java.util.Optional;
+import java.util.Set;
 
 import com.example.trivial_tfg.entity.Asignatura;
 
@@ -13,5 +14,8 @@ public interface AsignaturaService {
 	Asignatura actualizarRespuesta(Asignatura asignatura);
 	
 	void borrarAsignatura(Long id_asignatura);
+	
+	Set<Asignatura> buscarCurso(Long id_curso);
+	
 
 }
