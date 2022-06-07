@@ -56,7 +56,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 		if (isUsuario) {
 			targetUrl = "/ranking";
 		} else if (isAdmin) {
-			targetUrl = "/ranking";
+			targetUrl = "/index";
 		} else {
 			throw new IllegalStateException();
 		}
