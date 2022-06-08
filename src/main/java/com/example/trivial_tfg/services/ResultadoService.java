@@ -15,4 +15,6 @@ public interface ResultadoService{
 	
 	 void borrarResultado(Long id_resultado);
 
+	Optional<Resultado> mostrarResultado(Long id_pregunta);
+
 }

@@ -1,5 +1,6 @@
 package com.example.trivial_tfg.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -39,6 +40,13 @@ public class ResultadoServiceImpl implements ResultadoService {
 	public void borrarResultado(Long id_resultado) {
 		resultadoDao.deleteById(id_resultado);
 		
+	}
+	
+	@Override
+	public Optional<Resultado> mostrarResultado(Long id_pregunta) {
+		Optional<Resultado> resultados = (Optional<Resultado>) resultadoDao.findById(id_pregunta);
+		
+		return resultados;
 	}
 
 }	

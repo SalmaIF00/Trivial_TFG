@@ -1,6 +1,6 @@
 package com.example.trivial_tfg.repository;
 
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -10,5 +10,5 @@ import com.example.trivial_tfg.entity.Pregunta;
 @Repository
 public interface PreguntaRepository  extends JpaRepository<Pregunta, Long> {
 	@Query("from Pregunta where id_asignatura = :idasignatura")
-	Set<Pregunta> findByIdAsignatura(Long idasignatura);
+	List<Pregunta> findByIdAsignatura(Long idasignatura);
 }

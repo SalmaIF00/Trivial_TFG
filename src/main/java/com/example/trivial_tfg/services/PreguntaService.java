@@ -1,8 +1,8 @@
 package com.example.trivial_tfg.services;
 
 
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import com.example.trivial_tfg.entity.Pregunta;
 
@@ -16,5 +16,5 @@ public interface PreguntaService{
 	
 	 void borrarPregunta(Long id_pregunta);
 	 
-	 Set<Pregunta> listarPreguntas(Long id_asignatura);
+	 List<Pregunta> listarPreguntas(Long id_asignatura);
 }

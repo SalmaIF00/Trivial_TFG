@@ -1,7 +1,7 @@
 package com.example.trivial_tfg.services;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -42,7 +42,7 @@ public class PreguntaServiceImpl implements PreguntaService {
 	}
 
 	@Override
-	public Set<Pregunta> listarPreguntas(Long id_asignatura) {
+	public List<Pregunta> listarPreguntas(Long id_asignatura) {
 		
 		return preguntaRepository.findByIdAsignatura(id_asignatura) ;
 	}
