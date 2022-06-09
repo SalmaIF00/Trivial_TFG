@@ -44,7 +44,7 @@ public class PreguntaServiceImpl implements PreguntaService {
 	@Override
 	public List<Pregunta> listarPreguntas(Long id_asignatura) {
 		
-		return preguntaRepository.findByIdAsignatura(id_asignatura) ;
+		return (List<Pregunta>) preguntaRepository.findByIdAsignatura(id_asignatura) ;
 	}
 
 }

@@ -47,33 +47,27 @@ public class PreguntaController {
 //		return preguntas;
 //	}
 
-//	static List<Pregunta> preguntas = null;
+	private static List<Pregunta> preguntas = null;
 
 	// CONTROLADOR PREGUNTA 1
 	@GetMapping("/{id_asignatura}")
 	public String pregunta1(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
-//		System.out.print(id_asignatura);
-//		List<Pregunta> preguntas = (List<Pregunta>) preguntaService.listarPreguntas(id_asignatura);
-//		
-//		Pregunta pregunta = preguntas.get(0);
-//		String p = pregunta.getPregunta();
-//		
-//		String p = null;
-//
-//		List<Pregunta> preguntas = (List<Pregunta>) preguntaService.listarPreguntas(id_asignatura);
-//		for (int i = 0; i <= preguntas.size(); i++) {
-//			if (i == 0) {
-//				Pregunta pregunta = preguntas.get(1);
-//				p = pregunta.getPregunta();
-//			}
-//		}
-//
-//		model.addAttribute("pregunta", p);
+		System.out.print(id_asignatura);
+		List<Pregunta> preguntas = (List<Pregunta>) preguntaService.listarPreguntas(id_asignatura);
+
+		String pregunta = null;
+		for (int i = 0; i <= preguntas.size(); i++) {
+			Pregunta p = preguntas.get(0);
+			pregunta = p.getPregunta();
+		}
+
+		model.addAttribute("pregunta", pregunta);
 		return "html/preguntas_opciones";
 	}
 
 	@PostMapping("/{id_asignatura}")
-	public String persistPregunta1(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
+	public String persistPregunta1(@PathVariable("id_asignatura") Long id_asignatura, Model model,
+			HttpSession session) {
 
 		return "html/preguntas_opciones2";
 	}
@@ -96,7 +90,8 @@ public class PreguntaController {
 	}
 
 	@PostMapping("/pregunta2")
-	public String persistPregunta2(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
+	public String persistPregunta2(@PathVariable("id_asignatura") Long id_asignatura, Model model,
+			HttpSession session) {
 
 		return "html/preguntas_opciones3";
 	}
@@ -109,7 +104,8 @@ public class PreguntaController {
 	}
 
 	@PostMapping("/pregunta3")
-	public String persistPregunta3(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
+	public String persistPregunta3(@PathVariable("id_asignatura") Long id_asignatura, Model model,
+			HttpSession session) {
 
 		return "html/preguntas_opciones4";
 	}
@@ -122,11 +118,12 @@ public class PreguntaController {
 	}
 
 	@PostMapping("/pregunta4")
-	public String persistPregunta4(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
+	public String persistPregunta4(@PathVariable("id_asignatura") Long id_asignatura, Model model,
+			HttpSession session) {
 
 		return "html/preguntas_opciones5";
 	}
-	
+
 	// CONTROLADOR PREGUNTA 5
 
 	// CONTROLADOR PREGUNTA 6
