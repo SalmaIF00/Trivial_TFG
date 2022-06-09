@@ -1,5 +1,6 @@
 package com.example.trivial_tfg.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -37,6 +38,11 @@ public class RespuestaServiceImpl implements RespuestaService{
 	public void borrarRespuesta(Long id_respuesta) {
 		respuestaRepository.deleteById(id_respuesta);
 		
+	}
+
+	@Override
+	public List<Respuesta> buscarIdPregunta(Long id_pregunta) {
+		return respuestaRepository.findByIdPregunta(id_pregunta);
 	}
 
 

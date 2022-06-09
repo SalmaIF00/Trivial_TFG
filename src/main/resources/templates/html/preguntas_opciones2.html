@@ -25,15 +25,14 @@
 	<!--HEADER-->
 	<nav th:replace="html/navbar"></nav>
 	<!--ASIGNATURAS-->
-	<div class="row contenedor">
-		<div class="col-12 pregunta">PREGUNTA</div>
-		<div class="col op1">OPCION 1</div>
-		<div class="col op2">OPCION 2</div>
-		<div class="w-100"></div>
-		<div class="col op3">OPCION 3</div>
-		<div class="col op4">OPCION 4</div>
-		<a th:href="@{/pregunta3}" method="GET">
-			<button type="submit">Pregunta 3</button>
+	<div class="row contenedor" th:action="@{/pregunta2}" method="POST">
+		<div class="col-12 pregunta" th:text="${pregunta}">PREGUNTA 2</div>
+		<span id="container" th:each="respuesta:${respuesta}">
+			<div class="col op1" th:text="${respuesta.respuesta}"> </div>
+		</span>
+		<a th:href="@{/{id_asignatura}(id_asignatura=${asignatura.id_asignatura})/1}" method="GET">
+
+			<button type="button" class="btn btn-outline-secondary">Pregunta 3</button>
 		</a>
 	</div>
 	<!--FOOTER-->

@@ -3,7 +3,6 @@ package com.example.trivial_tfg.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.trivial_tfg.entity.Pregunta;
+import com.example.trivial_tfg.entity.Respuesta;
 import com.example.trivial_tfg.services.PreguntaService;
 import com.example.trivial_tfg.services.RespuestaService;
 
@@ -47,82 +47,93 @@ public class PreguntaController {
 //		return preguntas;
 //	}
 
-	private static List<Pregunta> preguntas = null;
-
 	// CONTROLADOR PREGUNTA 1
-	@GetMapping("/{id_asignatura}")
-	public String pregunta1(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
-		System.out.print(id_asignatura);
+	@GetMapping(value = { "/{id_asignatura}", "/pregunta" })
+	public String pregunta1(HttpSession session, @PathVariable("id_asignatura") Long id_asignatura, Model model) {
 		List<Pregunta> preguntas = (List<Pregunta>) preguntaService.listarPreguntas(id_asignatura);
-
+		Pregunta p = null;
 		String pregunta = null;
+		
 		for (int i = 0; i <= preguntas.size(); i++) {
-			Pregunta p = preguntas.get(0);
+			p = preguntas.get(0);
 			pregunta = p.getPregunta();
 		}
 
+		List<Respuesta> respuesta = (List<Respuesta>) respuestaService.buscarIdPregunta(p.getId_pregunta());
+		model.addAttribute("respuesta", respuesta);
 		model.addAttribute("pregunta", pregunta);
+		model.addAttribute("id_asignatura", id_asignatura);
+		
 		return "html/preguntas_opciones";
 	}
 
-	@PostMapping("/{id_asignatura}")
-	public String persistPregunta1(@PathVariable("id_asignatura") Long id_asignatura, Model model,
-			HttpSession session) {
+	@PostMapping(value = { "/{id_asignatura}", "/pregunta" })
+	public String persistPregunta1(@PathVariable("id_asignatura") Long id_asignatura, Model model) {
 
-		return "html/preguntas_opciones2";
+		return "redirect:/preguntas_opciones";
 	}
 
-	// CONTROLADOR PREGUNTA 2
-	@GetMapping("/pregunta2")
-	public String pregunta2(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
-//			String p = null;
-		//
-//			List<Pregunta> preguntas = (List<Pregunta>) preguntaService.listarPreguntas(id_asignatura);
-//			for (int i = 0; i <= preguntas.size(); i++) {
-//				if (i == 0) {
-//					Pregunta pregunta = preguntas.get(1);
-//					p = pregunta.getPregunta();
-//				}
-//			}
-		//
-//			model.addAttribute("pregunta", p);
-		return "html/preguntas_opciones2";
-	}
-
-	@PostMapping("/pregunta2")
-	public String persistPregunta2(@PathVariable("id_asignatura") Long id_asignatura, Model model,
-			HttpSession session) {
-
-		return "html/preguntas_opciones3";
-	}
-
-	// CONTROLADOR PREGUNTA 3
-	@GetMapping("/pregunta3")
-	public String pregunta3(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
-
-		return "html/preguntas_opciones3";
-	}
-
-	@PostMapping("/pregunta3")
-	public String persistPregunta3(@PathVariable("id_asignatura") Long id_asignatura, Model model,
-			HttpSession session) {
-
-		return "html/preguntas_opciones4";
-	}
-
-	// CONTROLADOR PREGUNTA 4
-	@GetMapping("/pregunta4")
-	public String pregunta4(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
-
-		return "html/preguntas_opciones4";
-	}
-
-	@PostMapping("/pregunta4")
-	public String persistPregunta4(@PathVariable("id_asignatura") Long id_asignatura, Model model,
-			HttpSession session) {
-
-		return "html/preguntas_opciones5";
-	}
+	
+	
+	
+	
+	
+	
+//	// CONTROLADOR PREGUNTA 2
+//	@GetMapping("/pregunta2")
+//	public String pregunta2(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
+//		System.out.print(id_asignatura);
+//		List<Pregunta> preguntas = (List<Pregunta>) preguntaService.listarPreguntas(id_asignatura);
+//
+//		Pregunta p = null;
+//		String pregunta = null;
+//
+//		for (int i = 0; i <= preguntas.size(); i++) {
+//			p = preguntas.get(1);
+//			pregunta = p.getPregunta();
+//		}
+//
+//		List<Respuesta> respuesta = (List<Respuesta>) respuestaService.buscarIdPregunta(p.getId_pregunta());
+//		model.addAttribute("respuesta", respuesta);
+//		model.addAttribute("pregunta", pregunta);
+//
+//		return "html/preguntas_opciones2";
+//	}
+//
+//	@PostMapping("/{id_asignatura}/2")
+//	public String persistPregunta2(@PathVariable("id_asignatura") Long id_asignatura, Model model,
+//			HttpSession session) {
+//
+//		return "redirect:/pregunta3";
+//	}
+//
+//	// CONTROLADOR PREGUNTA 3
+//	@GetMapping("/pregunta3")
+//	public String pregunta3(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
+//
+//		return "html/preguntas_opciones3";
+//	}
+//
+//	@PostMapping("/pregunta3")
+//	public String persistPregunta3(@PathVariable("id_asignatura") Long id_asignatura, Model model,
+//			HttpSession session) {
+//
+//		return "html/preguntas_opciones4";
+//	}
+//
+//	// CONTROLADOR PREGUNTA 4
+//	@GetMapping("/pregunta4")
+//	public String pregunta4(@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpSession session) {
+//
+//		return "html/preguntas_opciones4";
+//	}
+//
+//	@PostMapping("/pregunta4")
+//	public String persistPregunta4(@PathVariable("id_asignatura") Long id_asignatura, Model model,
+//			HttpSession session) {
+//
+//		return "html/preguntas_opciones5";
+//	}
 
 	// CONTROLADOR PREGUNTA 5
 

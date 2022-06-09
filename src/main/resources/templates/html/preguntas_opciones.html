@@ -25,16 +25,13 @@
 	<!--HEADER-->
 	<nav th:replace="html/navbar"></nav>
 	<!--ASIGNATURAS-->
-	<div class="row contenedor">
+	<div class="row contenedor" th:action="@{/pregunta1}" method="POST">
 		<div class="col-12 pregunta" th:text="${pregunta}">PREGUNTA</div>
-		<div class="col op1">OPCION 1</div>
-		<div class="col op2">OPCION 2</div>
-		<div class="w-100"></div>
-		<div class="col op3">OPCION 3</div>
-		<div class="col op4">OPCION 4</div>
-		<a th:href="@{/pregunta2}" method="GET">
-			<button type="submit">Pregunta 2</button>
-		</a>
+		<span id="container" th:each="respuesta:${respuesta}">
+			<option class="col op1" th:text="${respuesta.respuesta}" value="${respuesta.respuesta}"></option>
+		</span>
+		<!--	<div class="w-100"></div>-->
+		<input type="submit" name="enviar" value="Enviar" />
 	</div>
 	<!--FOOTER-->
 	<footer>
