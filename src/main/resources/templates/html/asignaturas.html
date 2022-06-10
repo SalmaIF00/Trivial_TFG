@@ -16,9 +16,9 @@
 	<nav th:replace="html/navbar"></nav>
 	<!--ASIGNATURAS-->
 
-	<span id="container" th:each="asignatura:${asignaturas}">
+	<span id="asig" th:each="asignatura:${asignaturas}">
 		<a th:href="@{/{id_asignatura}(id_asignatura=${asignatura.id_asignatura})}" method="GET">
-			<div id="asignaturas" class="boton_asignatura">
+			<div id="{{'asignatura'}+asignatura.id_asignatura}" class="boton_asignatura">
 				<p id="id_asignaturas" th:text="${asignatura.id_asignatura}">
 				<p th:text="${asignatura.nombre_asignatura}"></p>
 			</div>
