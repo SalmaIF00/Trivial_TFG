@@ -1,7 +1,7 @@
 package com.example.trivial_tfg.services;
 
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -41,8 +41,11 @@ public class RespuestaServiceImpl implements RespuestaService{
 	}
 
 	@Override
-	public List<Respuesta> buscarIdPregunta(Long id_pregunta) {
-		return respuestaRepository.findByIdPregunta(id_pregunta);
+	public Set<Respuesta> buscarIdPregunta(Long id_pregunta) {
+		Respuesta resp = respuestaRepository.findById(id_pregunta).orElse(null);
+		
+		
+		return resp.getPregunta().getRespuestas();
 	}
 
 

@@ -53,6 +53,15 @@ public class Pregunta implements Serializable {
 	public Long getId_pregunta() {
 		return id_pregunta;
 	}
+	
+
+	public Set<Respuesta> getRespuestas() {
+		return respuestas;
+	}
+
+	public void setRespuestas(Set<Respuesta> respuestas) {
+		this.respuestas = respuestas;
+	}
 
 	public void setId_pregunta(Long id_pregunta) {
 		this.id_pregunta = id_pregunta;

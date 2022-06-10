@@ -23,7 +23,7 @@ public class Asignatura implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_asignatura")
-	private Long id_asignatura;
+	private Long IdAsignatura;
 	private String nombre_asignatura;
 
 	//ASIGNATURAS-CURSO
@@ -42,18 +42,18 @@ public class Asignatura implements Serializable {
 
 	public Asignatura(Long id_asignatura, String nombre_asignatura) {
 		super();
-		this.id_asignatura = id_asignatura;
+		this.IdAsignatura = id_asignatura;
 		this.nombre_asignatura = nombre_asignatura;
 	}
 
 	// GETTERS Y SETTERS
 
 	public Long getId_asignatura() {
-		return id_asignatura;
+		return IdAsignatura;
 	}
 
 	public void setId_asignatura(Long id_asignatura) {
-		this.id_asignatura = id_asignatura;
+		this.IdAsignatura = id_asignatura;
 	}
 
 	public String getNombre_asignatura() {

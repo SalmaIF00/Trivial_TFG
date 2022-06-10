@@ -1,6 +1,7 @@
 package com.example.trivial_tfg.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,6 +42,14 @@ public class Respuesta implements Serializable {
 	// GETTERS Y SETTERS
 	public Long getId_respuesta() {
 		return id_respuesta;
+	}
+
+	public Pregunta getPregunta() {
+		return pregunta;
+	}
+
+	public void setPregunta(Pregunta pregunta) {
+		this.pregunta = pregunta;
 	}
 
 	public void setId_respuesta(Long id_respuesta) {

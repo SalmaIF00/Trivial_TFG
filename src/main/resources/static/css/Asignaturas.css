@@ -1,7 +1,7 @@
-#asig{
+span{
     width: 100%;
     height: 100%;
-    display: flex;
+   	align:center;
 	align-items: center;
 }
 .boton_asignatura{
@@ -22,9 +22,9 @@
  
 }
 
-#asignatura1{
+.boton_asignatura{
 	border: solid 0.1em black;
-	background-color: red;
+	background-color: blue;
 }
 
 

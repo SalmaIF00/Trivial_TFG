@@ -7,8 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.example.trivial_tfg.entity.Asignatura;
+import com.example.trivial_tfg.entity.Pregunta;
 @Repository
 public interface AsignaturaRepository extends JpaRepository<Asignatura, Long>{
 	@Query("from Asignatura where id_curso = :idcurso")
 	Set<Asignatura> findByIdCurso(Long idcurso);
+
 }

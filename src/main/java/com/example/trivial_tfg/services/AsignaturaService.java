@@ -4,6 +4,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import com.example.trivial_tfg.entity.Asignatura;
+import com.example.trivial_tfg.entity.Pregunta;
 
 public interface AsignaturaService {
 	
@@ -16,6 +17,9 @@ public interface AsignaturaService {
 	void borrarAsignatura(Long id_asignatura);
 	
 	Set<Asignatura> buscarCurso(Long id_curso);
+	
+	Set<Pregunta> buscarPreguntas(Long id_asignatura);
+
 	
 
 }

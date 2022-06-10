@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.trivial_tfg.entity.Asignatura;
+import com.example.trivial_tfg.entity.Pregunta;
 import com.example.trivial_tfg.repository.AsignaturaRepository;
 
 @Transactional
@@ -46,6 +47,12 @@ public class AsignaturaServiceImpl implements AsignaturaService {
 	public Set<Asignatura> buscarCurso(Long id_curso) {
 		return asignaturaRepository.findByIdCurso(id_curso);
 		
+	}
+
+	@Override
+	public Set<Pregunta> buscarPreguntas(Long id_asignatura) {
+		
+		return null;
 	}
 
 }
