@@ -19,7 +19,7 @@
 
 	<span id="asig" th:each="asignatura:${asignaturas}">
 
-		<a th:href="@{/pregunta/{id_asignatura}(id_asignatura=${asignatura.id_asignatura})/{id_pregunta}(id_pregunta=${asignatura.id_pregunta})}">
+		<a th:href="@{/pregunta/{id_asignatura}(id_asignatura=${asignatura.id_asignatura})}">
 			<div class="boton_asignatura">
 				<p id="id_asignaturas" th:text="${asignatura.id_asignatura}">
 				<p th:text="${asignatura.nombre_asignatura}"></p>

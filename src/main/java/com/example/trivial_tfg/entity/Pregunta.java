@@ -43,6 +43,14 @@ public class Pregunta implements Serializable {
 		super();
 	}
 
+	public Asignatura getAsignatura() {
+		return asignatura;
+	}
+
+	public void setAsignatura(Asignatura asignatura) {
+		this.asignatura = asignatura;
+	}
+
 	public Pregunta(Long id_pregunta, String pregunta) {
 		super();
 		this.id_pregunta = id_pregunta;

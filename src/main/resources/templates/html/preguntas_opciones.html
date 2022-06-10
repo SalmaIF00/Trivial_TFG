@@ -25,8 +25,9 @@
 	<!--HEADER-->
 	<nav th:replace="html/navbar"></nav>
 	<!--ASIGNATURAS-->
-	
-	<form class="row contenedor" th:action="@{/pregunta/${id_asignatura}/${id_pregunta}}" method="get">
+	<div th:text="${id_asignatura}"></div>
+	<div th:text="${id_pregunta}"></div>
+	<form class="row contenedor" th:action="@{/pregunta/+{id_asignatura}+/+{id_pregunta}}" method="get">
 		<div class="col-12 pregunta" th:text="${pregunta}">PREGUNTA</div>
 		<span id="container" th:each="respuesta:${respuesta}">
 			<option class="col op1" th:text="${respuesta.respuesta}" value="${respuesta.id_respuesta}"></option>

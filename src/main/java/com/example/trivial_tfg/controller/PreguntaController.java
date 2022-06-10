@@ -52,20 +52,26 @@ public class PreguntaController {
 	// CONTROLADOR PREGUNTA 1
 	@GetMapping("/pregunta/{id_asignatura}/{id_pregunta}" )
 	public String pregunta1(HttpSession session, @PathVariable("id_asignatura") Long id_asignatura, @PathVariable("id_pregunta") Long id_pregunta, Model model) {
-		Set<Long> id_preguntas = preguntaService.listarPreguntas(id_asignatura);
+	//	Set<Long> id_preguntas = preguntaService.listarPreguntas(id_asignatura);
 		
-		Pregunta preguntas = preguntaService.buscarPregunta(id_pregunta);
+		Pregunta preguntas = preguntaService.buscarPregunta(id_asignatura);
+		Asignatura asignatura = asignaturaService.buscarAsignatura(preguntas.getAsignatura().getId_asignatura());
+
+		preguntas.setAsignatura(asignatura);
+		//id_asignatura = preguntas.getAsignatura().getId_asignatura();
+
 		model.addAttribute("id_asignatura", id_asignatura);
 		model.addAttribute("id_pregunta", id_pregunta);
 
-			model.addAttribute("respuesta", preguntas.getPregunta());
-			model.addAttribute("pregunta", preguntas.getRespuestas());
+		model.addAttribute("respuesta", preguntas.getRespuestas());
+		model.addAttribute("pregunta", preguntas.getPregunta());
+		
 
 		
 		return "html/preguntas_opciones";
 	}
 
-	@PostMapping("/pregunta/{id_asignatura}")
+	@PostMapping("/pregunta/{id_asignatura}/{id_pregunta}")
 	public String persistPregunta1(@PathVariable("id_asignatura") Long id_asignatura, Model model) {
 
 		return "html/preguntas_opciones";

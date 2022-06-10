@@ -26,9 +26,9 @@ public class AsignaturaServiceImpl implements AsignaturaService {
 	}
 
 	@Override
-	public Optional<Asignatura> buscarAsignatura(Long id_asignatura) {
+	public Asignatura buscarAsignatura(Long id_asignatura) {
 
-		return asignaturaRepository.findById(id_asignatura);
+		return asignaturaRepository.findById(id_asignatura).orElse(null);
 	}
 
 	@Override

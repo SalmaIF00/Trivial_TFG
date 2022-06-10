@@ -10,7 +10,7 @@ public interface AsignaturaService {
 	
 	Asignatura crearAsignatura(Asignatura asignatura);
 	
-	Optional<Asignatura> buscarAsignatura(Long id_asignatura);
+	Asignatura buscarAsignatura(Long id_asignatura);
 	
 	Asignatura actualizarRespuesta(Asignatura asignatura);
 	
