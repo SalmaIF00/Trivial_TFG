@@ -15,7 +15,7 @@ public interface PreguntaService{
 	
 	 void borrarPregunta(Long id_pregunta);
 	 
-	 Set<Long> listarPreguntas(Long id_asignatura);
+	 Long[] listarPreguntas(Long id_asignatura);
 	 
 	 
 	 

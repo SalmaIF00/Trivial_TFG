@@ -27,13 +27,17 @@
 	<!--ASIGNATURAS-->
 	<div th:text="${id_asignatura}"></div>
 	<div th:text="${id_pregunta}"></div>
-	<form class="row contenedor" th:action="@{/pregunta/{id_asignatura}/{id_pregunta}}" method="get">
+	<form class="row contenedor" >
+	<!-- th:action="@{/pregunta/{id_asignatura}/{id_pregunta}}" method="get" -->
 		<div class="col-12 pregunta" th:text="${pregunta}">PREGUNTA</div>
 		<span id="container" th:each="respuesta:${respuesta}">
 			<option class="col op1" th:text="${respuesta.respuesta}" value="${respuesta.id_respuesta}"></option>
 		</span>
 		<!--	<div class="w-100"></div>-->
-		<input type="submit" name="enviar" value="Enviar" />
+		<a th:href="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}" method="POST">
+		<div class="col-12 pregunta">Enviar</div>
+		<!--<input type="submit" name="enviar" value="Enviar" />-->
+		</a>
 	</form>
 	<!--FOOTER-->
 	<footer>

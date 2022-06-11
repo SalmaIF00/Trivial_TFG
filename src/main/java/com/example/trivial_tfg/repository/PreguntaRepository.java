@@ -10,5 +10,5 @@ import com.example.trivial_tfg.entity.Pregunta;
 @Repository
 public interface PreguntaRepository  extends JpaRepository<Pregunta, Long> {
 	@Query("Select id_pregunta from Pregunta where id_asignatura = :idasignatura")
-	Set<Long> findByIdAsignatura(Long idasignatura);
+	Long[] findByIdAsignatura(Long idasignatura);
 }
