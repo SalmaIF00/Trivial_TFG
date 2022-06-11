@@ -37,7 +37,7 @@ body{
 	}
 }
 
-.navbar-brand{
+.navbar-brand, #idiomas{
 	padding: 0 !important;
 	display: flex;
 	align-items: center;
@@ -78,12 +78,23 @@ ol, ul{
 
 ///////////////////////////////////////////////////////////////
 ////////////////////////////FOOTER/////////////////////////////
-footer{
-	height: 3em;
+#redes{
+	img{
+		height: 2em;
+	width: 2em;
+	margin: 0.5em;
+	}
+	
+}
+
+#copyright{
+	height: 10vh;
 	background-color: $principal-background;
 	color: $letter;
 	clear: both;
+	text-align: right;
 	display: flex !important;
 	align-items: center;
 	justify-content: center;
+	padding: 0.5em;
 }
