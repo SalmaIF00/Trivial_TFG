@@ -16,7 +16,7 @@
 	<nav th:replace="html/navbar"></nav>
 	<!--ASIGNATURAS-->
 
-
+<div>
 	<span id="asig" th:each="asignatura:${asignaturas}">
 
 		<a th:href="@{/pregunta/{id_asignatura}(id_asignatura=${asignatura.id_asignatura})}">
@@ -29,6 +29,7 @@
 
 
 	</span>
+	</div>
 	<!--   <div id="div_2" class="boton_asignatura">
         <p>LENGUAJE DE MARCAS</p>
     </div>

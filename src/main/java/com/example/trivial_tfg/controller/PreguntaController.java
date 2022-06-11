@@ -1,6 +1,7 @@
 package com.example.trivial_tfg.controller;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.trivial_tfg.entity.Asignatura;
 import com.example.trivial_tfg.entity.Pregunta;
 import com.example.trivial_tfg.services.AsignaturaService;
 import com.example.trivial_tfg.services.PreguntaService;
@@ -83,11 +83,18 @@ public class PreguntaController {
 	public String pregunta1(HttpSession session, @PathVariable("id_asignatura") Long id_asignatura, Model model) {
 		Long[] id_preguntas = preguntaService.listarPreguntas(id_asignatura);
 		Integer random =  (int) Math.floor(Math.random()*11+1);
-
+		List<Integer> set = new ArrayList<>();
+		int contador = 0;
 		Long buscarID = null;
 		for(int i=0; i<=id_preguntas.length;i++) {
-			if(i==random) {
+			if( i==random && !set.contains(random)) {
 				buscarID = id_preguntas[i];
+				set.add(random);
+			}
+			if(contador == 10 ) {
+				break;
+			}else {
+			contador++;
 			}
 		}
 		

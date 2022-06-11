@@ -25,14 +25,19 @@
 	<!--HEADER-->
 	<nav th:replace="html/navbar"></nav>
 	<!--ASIGNATURAS-->
-	<div th:text="${id_asignatura}"></div>
-	<div th:text="${id_pregunta}"></div>
+	
 	<form class="row contenedor" >
 	<!-- th:action="@{/pregunta/{id_asignatura}/{id_pregunta}}" method="get" -->
-		<div class="col-12 pregunta" th:text="${pregunta}">PREGUNTA</div>
-		<span id="container" th:each="respuesta:${respuesta}">
+			<div class="col-12 pregunta" th:text="${pregunta}">PREGUNTA</div>
+			<div class="col-6 " th:each="respuesta:${respuesta}" >
+  <input class="checkbox-tools" type="radio" name="tools"   >
+  <label class="for-checkbox-tools" for="tool-1" th:text="${respuesta.respuesta}" value="${respuesta.id_respuesta}">
+</div>
+
+			
+		<!--  <span id="container" th:each="respuesta:${respuesta}">
 			<option class="col op1" th:text="${respuesta.respuesta}" value="${respuesta.id_respuesta}"></option>
-		</span>
+		</span>-->
 		<!--	<div class="w-100"></div>-->
 		<a th:href="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}" method="POST">
 		<div class="col-12 pregunta">Enviar</div>
