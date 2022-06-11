@@ -40,13 +40,17 @@ public class Asignatura implements Serializable {
 		super();
 	}
 
-	public Asignatura(Long id_asignatura, String nombre_asignatura) {
+	public Asignatura(Long idAsignatura, String nombre_asignatura, Curso curso, Set<Pregunta> pregunta) {
 		super();
-		this.IdAsignatura = id_asignatura;
+		IdAsignatura = idAsignatura;
 		this.nombre_asignatura = nombre_asignatura;
+		this.curso = curso;
+		this.pregunta = pregunta;
 	}
 
 	// GETTERS Y SETTERS
+
+
 
 	public Long getId_asignatura() {
 		return IdAsignatura;

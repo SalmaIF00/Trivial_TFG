@@ -42,6 +42,14 @@ public class Pregunta implements Serializable {
 	public Pregunta() {
 		super();
 	}
+	
+	public Pregunta(Long id_pregunta, String pregunta, Asignatura asignatura, Set<Respuesta> respuestas) {
+		super();
+		this.id_pregunta = id_pregunta;
+		this.pregunta = pregunta;
+		this.asignatura = asignatura;
+		this.respuestas = respuestas;
+	}
 
 	public Asignatura getAsignatura() {
 		return asignatura;
@@ -74,6 +82,8 @@ public class Pregunta implements Serializable {
 	public void setId_pregunta(Long id_pregunta) {
 		this.id_pregunta = id_pregunta;
 	}
+
+
 
 	public String getPregunta() {
 		return pregunta;

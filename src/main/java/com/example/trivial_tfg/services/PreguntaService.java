@@ -18,4 +18,6 @@ public interface PreguntaService{
 	 Set<Long> listarPreguntas(Long id_asignatura);
 	 
 	 
+	 
+	 
 }
