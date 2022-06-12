@@ -81,23 +81,36 @@ public class PreguntaController {
 	// CÓDIGO JESS
 	@GetMapping("/pregunta/{id_asignatura}")
 	public String pregunta1(HttpSession session, @PathVariable("id_asignatura") Long id_asignatura, Model model) {
+		/* Esta función devolverá las 10 preguntas que correspondan a la asignatura */
 		Long[] id_preguntas = preguntaService.listarPreguntas(id_asignatura);
-		Integer random =  (int) Math.floor(Math.random()*11+1);
+
+		/* Buscamos un número random entre 0 a 9 */
+		Integer random = (int) Math.floor(Math.random() * 10);
+
+		/* Todos los números random se almacenarán en este array */
 		List<Integer> set = new ArrayList<>();
-		int contador = 0;
-		Long buscarID = null;
-		for(int i=0; i<=id_preguntas.length;i++) {
-			if( i==random && !set.contains(random)) {
-				buscarID = id_preguntas[i];
-				set.add(random);
-			}
-			if(contador == 10 ) {
-				break;
-			}else {
-			contador++;
-			}
-		}
-		
+		set.add(random);
+
+		/* Buscamos el id_pregunta recorriendo el array según el número random */
+		Long buscarID = id_preguntas[random];
+
+//		/* Mientras contaremos las vueltas que da este controlador */
+//		int contador = 0;
+
+//		Long buscarID = null;
+//		for (int i = 0; i <= id_preguntas.length; i++) {
+//			if (i == random && !set.contains(random)) {
+//				buscarID = id_preguntas[i];
+//				set.add(random);
+//			}
+//			if (contador == 10) {
+//				break;
+//			} else {
+//				contador++;
+//			}
+//		}
+
+		/* Tras encontrar el id_pregunta se obtendrá la pregunta completa */
 		Pregunta p = preguntaService.buscarPregunta(buscarID);
 
 		model.addAttribute("id_asignatura", id_asignatura);
@@ -112,11 +125,27 @@ public class PreguntaController {
 //
 //		return "html/preguntas_opciones";
 //	}
-	
+
+	/***
+	 * https://es.stackoverflow.com/questions/137453/ejecutar-2-veces-un-mismo-hilo-java
+	 * 
+	 * @param id_asignatura
+	 * @param model
+	 * @return
+	 */
 	@PostMapping("/pregunta/{id_asignatura}")
 	public String persistPregunta1(@PathVariable("id_asignatura") Long id_asignatura, Model model) {
-	
-		return "redirect:/preguntas_opciones";
+		/* Mientras contaremos las vueltas que da este controlador */
+		int contador = 0;
+		
+		
+		if (contador == 10) {
+			contador = 0;
+			return "html/ranking";
+		} else {
+			contador++;
+			return "redirect:/preguntas_opciones";
+		}
 	}
 
 	// // CONTROLADOR PREGUNTA 2

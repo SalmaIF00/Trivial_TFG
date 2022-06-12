@@ -80,4 +80,11 @@ public class UsuarioController {
 
 		return "html/perfil";
 	}
+	
+	//CONTROLADOR CERRAR SESIÓN
+	@GetMapping("/logout")
+	public String destroySession(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return "redirect:/index";
+	}
 }

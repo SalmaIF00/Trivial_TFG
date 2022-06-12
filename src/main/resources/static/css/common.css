@@ -19,8 +19,6 @@ section {
 }
 #container #login, #container #signup {
   width: 50%;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
   float: left;
 }
 #container #login p, #container #signup p {
