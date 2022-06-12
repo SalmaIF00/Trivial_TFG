@@ -18,5 +18,7 @@ public interface UsuarioService {
 
 	Usuario crearUsuario(Long id_usuario, Long curso, String nombre, String apellidos, String nombre_usuario,
 			String password, String rol);
+	
+	Usuario findById(Long id_usuario);
 
 }

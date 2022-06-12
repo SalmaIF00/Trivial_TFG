@@ -61,27 +61,24 @@ public class UsuarioController {
 		
 	}
 	
-	// CONTROLADOR MOSTRAR PERFIL
+	// CONTROLADOR MOSTRAR PERFIL - OK
 	/**
-	 * Cuando funcione los resultados, probar esto
-	 * 
-	 * @ResponseBody
-	 * @RequestMapping(method = RequestMethod.POST, value = "/perfil")
-	 * public Usuario mostrarPerfil(Model model, HttpSession session) {
-	 * 	Usuario u = (Usuario) session.getAttribute("usuario");
-	 * 	Resultado r = resultadoService.findByUserId(u);
-	 * 
-	 * 	return r;
-	 * }
+	 * Se obtiene solo los datos de usuario (los resultados irán en otro controlador y se pasarán a JS)
 	 * 
 	 */
 	@GetMapping("/perfil")
-	public String getPerfil() {
-
+	public String getPerfil(Model model, HttpSession session) {
+		Usuario u = (Usuario) session.getAttribute("usuario");
+		
+		Long idU = u.getId_usuario();
+		Usuario usuario = (Usuario) usuarioService.findById(idU);
+		
+		model.addAttribute("usuario", usuario);
+		
 		return "html/perfil";
 	}
 	
-	//CONTROLADOR CERRAR SESIÓN
+	//CONTROLADOR CERRAR SESIÓN - OK
 	@GetMapping("/logout")
 	public String destroySession(HttpServletRequest request) {
 		request.getSession().invalidate();

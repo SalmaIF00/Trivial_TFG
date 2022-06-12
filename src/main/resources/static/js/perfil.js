@@ -8,12 +8,22 @@ google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawPerfilChart);
 google.charts.setOnLoadCallback(drawPerfilDataTable);
 
+var arrRandom = [];
 
+function createDate() {
+	for (var i = 0; i <= 20; i++) {
+		var random = Math.floor(Math.random() * 10 + 1);
+		arrRandom.push(random);
+	}
+	console.log(arrRandom);
+	return arrRandom;
+
+}
 // Callback that creates and populates a data table,
 // instantiates the pie chart, passes in the data and
 // draws it.
 function drawPerfilChart() {
-	const data = ['0', '4', '2', '6', '3', '8'];
+	const data = ['7', '4', '2', '6', '3', '8'];
 	console.log(data);
 
 	let asig_1 = parseInt(data[0]);
@@ -22,7 +32,7 @@ function drawPerfilChart() {
 	let asig_4 = parseInt(data[3]);
 	let asig_5 = parseInt(data[4]);
 	let asig_6 = parseInt(data[5]);
-	
+
 	var final_data = google.visualization.arrayToDataTable([
 		['Asignatura', 'Test'],
 		['asignatura_1', asig_1],
@@ -34,7 +44,7 @@ function drawPerfilChart() {
 	]);
 
 	var options = {
-		title: 'Asignaturas realizadas'
+
 	};
 
 	var chart = new google.visualization.PieChart(document.getElementById('graphic_profile_chart'));
@@ -49,17 +59,16 @@ function drawPerfilDataTable() {
 	// ------- Version 1------------
 	// Add rows + data at the same time
 	// -----------------------------
-	const nombre = ['Jessica', 'Bob', 'Frank', 'Fritz', 'Floyd', 'Marcus', 'Renzo', 'Adam', 'Sarah', 'Vero', 'Marta', 'Mery', 'ALvin', 'Peter'];
-	const data = ['0', '4', '2', '6', '3', '8', '5', '6', '10', '7', '3', '6', '9', '1'];
-	console.log(data);
-
+	random = createDate();
+	console.log(random);
 	var table = document.getElementById('data_profile_table');
-	for (let i = 9; i >= 3; i--) {
+	for (let i = 0; i <= random.length; i++) {
 		// Creando los 'td' que almacenará cada parte de la información del usuario actual
-		let name = `<td>${nombre[i]}</td>`;
-		let posicion = `<td>${data[i]}</td>`;
+		let name = `<td>Usuario</td>`;
+		let subject = `<td>Asignatura</td>`;
+		let posicion = `<td>${arrRandom[i]}</td>`;
 
-		table.innerHTML += `<tr>${name}${posicion}</tr>`;
+		table.innerHTML += `<tr>${name}${subject}${posicion}</tr>`;
 	}
 
 	//	var final_data = google.visualization.arrayToDataTable([
@@ -80,4 +89,22 @@ function drawPerfilDataTable() {
 	//
 	//	var table = new google.visualization.Table(document.getElementById('data_table'));
 	//	table.draw(view, { sortColumn: 1 });
+}
+
+///////////////////////////////////////////////////////////
+////////////////////CAMBIOS//////////////////////////
+function tabla(){
+	var tabla = document.getElementById("tabla");
+	tabla.removeAttribute("style");
+	
+	var donut = document.getElementById("donut");
+	donut.setAttribute("style","display:none");
+}
+
+function grafico(){
+	var donut = document.getElementById("donut");
+	donut.removeAttribute("style");
+	
+	var tabla = document.getElementById("tabla");
+	tabla.setAttribute("style","display:none");
 }
