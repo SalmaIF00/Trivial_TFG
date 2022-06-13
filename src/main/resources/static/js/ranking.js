@@ -376,9 +376,9 @@ function drawChart() {
 
 	var final_data = google.visualization.arrayToDataTable([
 		["Element", "Density", { role: "style" }],
-		["Silver", segundo, "silver"],
-		["Gold", primero, "gold "],
-		["Copper", tercero, "#b87333"]
+		["Pepe", segundo, "silver "],
+		["Ramona", primero, "gold "],
+		["Otis", tercero, "#b87333"]
 	]);
 
 	var view = new google.visualization.DataView(final_data);
@@ -395,18 +395,11 @@ function drawChart() {
 		width: 1000,
 		height: 150,
 		border: "none",
-		gridlines: { display: "none" }, //Elimina las cuadrículas del gráfico
+		gridlines: { color: "rgb(0,0,0,0)" }, //Elimina las cuadrículas del gráfico
 		bar: { groupWidth: "none" },
 		legend: { position: "none" },
 		backgroundColor: "none",
-		yAxis: {
-			min: 0,
-			gridLineWidth: 0,
-			title: { text: '', align: 'high' },
-			labels: {
-				enabled: false //default is true 
-			}
-		},
+	
 	};
 
 

@@ -16,19 +16,15 @@
 	<nav th:replace="html/navbar"></nav>
 	<!--ASIGNATURAS-->
 
-<div>
-	<span id="asig" th:each="asignatura:${asignaturas}">
+	<div id="asig" >
 
-		<a th:href="@{/pregunta/{id_asignatura}(id_asignatura=${asignatura.id_asignatura})}">
+		<a id="color" th:each="asignatura:${asignaturas}" th:href="@{/pregunta/{id_asignatura}(id_asignatura=${asignatura.id_asignatura})}">
 			<div class="boton_asignatura">
-				<p id="id_asignaturas" th:text="${asignatura.id_asignatura}">
 				<p th:text="${asignatura.nombre_asignatura}"></p>
-
 			</div>
 		</a>
 
 
-	</span>
 	</div>
 	<!--   <div id="div_2" class="boton_asignatura">
         <p>LENGUAJE DE MARCAS</p>
@@ -53,7 +49,7 @@
 		<div id="copyright">
 			<div id="redes"><img th:src="@{/img/twitter.png}" alt="Imagen de twitter">
 				<img th:src="@{/img/facebook.png}" alt="Imagen de facebook"></div>
-			<hr/>
+			<hr />
 			Aviso legal | Política de privacidad | Accesibilidad | Usabilidad<br />
 			&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano
 		</div>
