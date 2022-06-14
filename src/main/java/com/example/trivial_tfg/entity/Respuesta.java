@@ -22,21 +22,24 @@ public class Respuesta implements Serializable {
 	@Column(name = "id_respuesta")
 	private Long id_respuesta;
 	private String respuesta;
+	private String resultado;
 
-	//RESPUESTA- PREGUNTA
+	// RESPUESTA- PREGUNTA
 	@ManyToOne
 	@JoinColumn(name = "id_pregunta")
 	private Pregunta pregunta;
-	
+
 	// CONSTRUCTORES
 	public Respuesta() {
 		super();
 	}
 
-	public Respuesta(Long id_respuesta, String respuesta) {
+	public Respuesta(Long id_respuesta, String respuesta, String resultado, Pregunta pregunta) {
 		super();
 		this.id_respuesta = id_respuesta;
 		this.respuesta = respuesta;
+		this.resultado = resultado;
+		this.pregunta = pregunta;
 	}
 
 	// GETTERS Y SETTERS
@@ -64,8 +67,12 @@ public class Respuesta implements Serializable {
 		this.respuesta = respuesta;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getResultado() {
+		return resultado;
+	}
+
+	public void setResultado(String resultado) {
+		this.resultado = resultado;
 	}
 
 }

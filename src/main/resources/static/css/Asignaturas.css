@@ -6,8 +6,8 @@
     flex-wrap: wrap;
 }
 .boton_asignatura{
-    width: 25em;
-    height: 12.5em;
+    width: 50vh;
+    height: 25vh;
     border: none;
     color: white;
     box-sizing: border-box;

@@ -27,23 +27,22 @@ public class Pregunta implements Serializable {
 	private Long id_pregunta;
 	private String pregunta;
 
-	
-	//PREGUNTA-ASIGNATURA
+	// PREGUNTA-ASIGNATURA
 	@ManyToOne
 	@JoinColumn(name = "id_asignatura")
 	private Asignatura asignatura;
-	
-	//PREGUNTA-RESPUESTA
+
+	// PREGUNTA-RESPUESTA
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pregunta", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Respuesta> respuestas = new HashSet<>();
 
-	
 	// CONSTRUCTORES
 	public Pregunta() {
 		super();
 	}
-	
-	public Pregunta(Long id_pregunta, String pregunta, Asignatura asignatura, Set<Respuesta> respuestas) {
+
+	public Pregunta(Long id_pregunta, String pregunta, Asignatura asignatura,
+			Set<Respuesta> respuestas) {
 		super();
 		this.id_pregunta = id_pregunta;
 		this.pregunta = pregunta;
@@ -51,6 +50,7 @@ public class Pregunta implements Serializable {
 		this.respuestas = respuestas;
 	}
 
+	// GETTERS Y SETTERS
 	public Asignatura getAsignatura() {
 		return asignatura;
 	}
@@ -65,11 +65,9 @@ public class Pregunta implements Serializable {
 		this.pregunta = pregunta;
 	}
 
-	// GETTERS Y SETTERS
 	public Long getId_pregunta() {
 		return id_pregunta;
 	}
-	
 
 	public Set<Respuesta> getRespuestas() {
 		return respuestas;
@@ -83,8 +81,6 @@ public class Pregunta implements Serializable {
 		this.id_pregunta = id_pregunta;
 	}
 
-
-
 	public String getPregunta() {
 		return pregunta;
 	}
@@ -93,7 +89,5 @@ public class Pregunta implements Serializable {
 		this.pregunta = pregunta;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	
 }
