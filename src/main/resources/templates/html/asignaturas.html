@@ -16,13 +16,15 @@
 	<nav th:replace="html/navbar"></nav>
 	<!--ASIGNATURAS-->
 
-	<div id="asig" >
+	<div id="asig">
 
-		<a id="color" th:each="asignatura:${asignaturas}" th:href="@{/pregunta/{id_asignatura}(id_asignatura=${asignatura.id_asignatura})}">
+		<a id="color" th:each="asignatura:${asignaturas}"
+			th:href="@{/pregunta/{id_asignatura}(id_asignatura=${asignatura.id_asignatura})}">
 			<div class="boton_asignatura">
 				<p th:text="${asignatura.nombre_asignatura}"></p>
 			</div>
 		</a>
+
 
 
 	</div>

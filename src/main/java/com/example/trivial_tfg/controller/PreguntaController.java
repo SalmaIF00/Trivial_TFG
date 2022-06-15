@@ -33,8 +33,8 @@ public class PreguntaController {
 
 	// CONTROLADOR MOSTRAR PREGUNTAS ALEATORIAS
 	@GetMapping("/pregunta/{id_asignatura}")
-	public String pregunta(HttpSession session, @PathVariable("id_asignatura") Long id_asignatura, Model model, HttpServletRequest request) {
-		
+	public String pregunta(HttpSession session,	@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpServletRequest request) {
+
 		@SuppressWarnings("unchecked")
 		Integer cont = (Integer) session.getAttribute("contador");
 		List<String> resp = (List<String>) session.getAttribute("respuesta");
@@ -42,7 +42,7 @@ public class PreguntaController {
 		if (cont == null) {
 			cont = 0;
 		}
-		
+
 		if (resp == null) {
 			resp = new ArrayList<>();
 		}
@@ -67,27 +67,29 @@ public class PreguntaController {
 		model.addAttribute("respuesta", p.getRespuestas());
 		model.addAttribute("pregunta", p.getPregunta());
 
-		request.getSession().setAttribute("respuesta", resp);
 		request.getSession().setAttribute("contador", cont + 1);
-		if (cont == 10) {
-			return "html/ranking";
-		} else {
+//		if (cont == 10) {
+//			return "html/ranking";
+//		} else {
 			return "html/preguntas_opciones";
-		}
+//		}
 	}
 	
 	@PostMapping("/pregunta/{id_asignatura}")
-	public String persistPregunta(@RequestParam("respuesta") String respuesta, HttpServletRequest request, Model model) {
-		@SuppressWarnings("unchecked")
-		List<String> resp = (List<String>) request.getSession().getAttribute("respuesta");
+	public String persistPregunta(@RequestParam("respuesta") String respuesta, HttpServletRequest request){
+		// Recuperamos la sesión de respuestas
+		List<Integer> resp = (List<Integer>) request.getSession().getAttribute("respuesta");
+		Integer cont = (Integer) request.getSession().getAttribute("contador");
 		
-		if(resp == null) {
-			resp = new ArrayList<>();
-			request.getSession().setAttribute("respuesta", resp);
+		if(respuesta != null) {
+			request.getSession().setAttribute("respuesta", respuesta);
 		}
 		
-		request.getSession().setAttribute("respuesta", resp);
-		return "redirect:/preguntas_opciones";
+		if(cont == 10) {
+			return "html/raning";
+		}else {
+			return "html/preguntas_opciones";
+		}
 	}
 
 }

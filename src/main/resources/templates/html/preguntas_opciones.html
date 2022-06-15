@@ -26,8 +26,8 @@
 	<nav th:replace="html/navbar"></nav>
 	<!--ASIGNATURAS-->
 
-	<form class="row contenedor">
-		<!-- th:action="@{/pregunta/{id_asignatura}/{id_pregunta}}" method="get" -->
+	<form class="row contenedor" th:action="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}" method="get">
+
 		<div class="col-12 pregunta" th:text="${pregunta}">PREGUNTA</div>
 		<div class="col-6 " th:each="respuesta:${respuesta}">
 			<input class="checkbox-tools" type="radio" name="tools">

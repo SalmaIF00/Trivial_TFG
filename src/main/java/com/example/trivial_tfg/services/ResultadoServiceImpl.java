@@ -16,35 +16,49 @@ import com.example.trivial_tfg.repository.ResultadoRepository;
 public class ResultadoServiceImpl implements ResultadoService {
 
 	@Autowired
-	ResultadoRepository resultadoDao;
+	ResultadoRepository resultadoRepository;
+	
+//	@Override
+//	public Resultado crearResultado(Resultado resultado) {
+//		
+//		return resultadoRepository.save(resultado);
+//	}
+//
+//	@Override
+//	public Optional<Resultado> buscarResultado(Long id_resultado) {
+//		
+//		return resultadoRepository.findById(id_resultado);
+//	}
+//
+//	@Override
+//	public Resultado actualizarResultado(Resultado resultado) {
+//		
+//		return resultadoRepository.save(resultado);
+//	}
+//
+//	@Override
+//	public void borrarResultado(Long id_resultado) {
+//		resultadoRepository.deleteById(id_resultado);
+//		
+//	}
+//	
+//	@Override
+//	public Optional<Resultado> mostrarResultado(Long id_pregunta) {
+//		Optional<Resultado> resultados = (Optional<Resultado>) resultadoRepository.findById(id_pregunta);
+//		
+//		return resultados;
+//	}
 	
 	@Override
-	public Resultado crearResultado(Resultado resultado) {
+	public List<Resultado> buscarResultados(){
+		List<Resultado> resultados = resultadoRepository.findAll();
 		
-		return resultadoDao.save(resultado);
-	}
-
-	@Override
-	public Optional<Resultado> buscarResultado(Long id_resultado) {
-		
-		return resultadoDao.findById(id_resultado);
-	}
-
-	@Override
-	public Resultado actualizarResultado(Resultado resultado) {
-		
-		return resultadoDao.save(resultado);
-	}
-
-	@Override
-	public void borrarResultado(Long id_resultado) {
-		resultadoDao.deleteById(id_resultado);
-		
+		return resultados;
 	}
 	
 	@Override
-	public Optional<Resultado> mostrarResultado(Long id_pregunta) {
-		Optional<Resultado> resultados = (Optional<Resultado>) resultadoDao.findById(id_pregunta);
+	public List<Resultado> buscarPorUsuario(Long id_usuario){
+		List<Resultado> resultados = resultadoRepository.findByUser(id_usuario);
 		
 		return resultados;
 	}
