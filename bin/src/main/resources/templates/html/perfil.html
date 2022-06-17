@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trivial</title>
+
+	<!-- RANKING & PROFILE CHARTS -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+	<!--PERFIL JS-->
+	<script th:src="@{/js/perfil.js}"></script>
+</head>
+
+<body>
+	<!--HEADER-->
+	<nav th:replace="html/navbar"></nav>
+
+	<!-- PERFIL USUARIO -->
+	<div id="perfilUsuario" th:each="u:${usuario}">
+		<div class="card text-center">
+			<div class="card-header">
+				<p th:text="${u.nombre}+'&nbsp'+${u.apellidos}"></p>
+			</div>
+			<div class="card-body">
+				<!-- FOTO USUARIO -->
+				<div class="text-center">
+					<img th:src="@{/img/stitch.jpg}" class="rounded" alt="Perfil de usuario">
+				</div><br />
+
+				<!-- Nº USUARIO-->
+				<div th:text="'Usuario N.º: '+${u.id_usuario}"></div><br />
+
+				<!-- NOMBRE USUARIO-->
+				<div th:text="'Nombre usuario: '+${u.nombre_usuario}"></div><br />
+
+				<!-- PARTIDAS JUGADAS-->
+				<div>N.º Pruebas realizadas</div><br />
+
+				<!--CURSO-->
+				<div th:text="'Curso: '+${u.curso.id_curso}"></div><br />
+
+				<!--BOTÓN PARA MOSTRAR LOS RESULTADOS-->
+				<a th:href="@{/asignaturas}" class="btn btn-primary">¡A jugar!</a>
+			</div>
+		</div>
+	</div>
+	<!--CHART-->
+	<div id="grafico" th:each="u:${usuario}">
+		<div class="card text-center">
+			<div class="card-header">
+				<p>Resultados</p>
+			</div>
+			<div class="card-body">
+				<div id="donut">
+					<div id="graphic_profile_chart"></div>
+					<!--BOTÓN PARA MOSTRAR TABLA-->
+					<a href="#" class="btn btn-primary" onclick="tabla()">Tabla</a>
+				</div>
+				<div id="tabla" style="display:none">
+					<table id="data" class="display table">
+						<tbody id="data_profile_table">
+							<tr>
+								<th scope="col">Nombre</th>
+								<th scope="col">Asignatura</th>
+								<th scope="col">Puntuación</th>
+							</tr>
+						</tbody>
+					</table>
+					<!--BOTÓN PARA MOSTRAR GRÁFICO-->
+					<a href="#" class="btn btn-primary" onclick="grafico()">Gráfico</a>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!--FOOTER-->
+	<footer>
+		<div id="copyright">
+			<div id="redes"><img th:src="@{/img/twitter.png}" alt="Imagen de twitter">
+				<img th:src="@{/img/facebook.png}" alt="Imagen de facebook"></div>
+			<hr />
+			Aviso legal | Política de privacidad | Accesibilidad | Usabilidad<br />
+			&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano
+		</div>
+
+	</footer>
+
+</body>
+
+</html>

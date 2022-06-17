@@ -54,7 +54,7 @@ public class UsuarioController {
 		Usuario usuario1 = usuarioService.buscarNomYPwd(nombre,password);
 		if(usuario1 !=null) {
 			httpSession.setAttribute("usuario", usuario1);
-			return "redirect:/asignaturas";
+			return "redirect:/perfil";
 		}else {
 			return "redirect:/index";
 		}

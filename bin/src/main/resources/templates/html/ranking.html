@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Trivial</title>
+
+	<!-- RANKING & PROFILE CHARTS -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+	<!--RANKING JS-->
+	<script type="text/javascript" th:src="@{/js/ranking.js}"></script>
+
+	<!--TOKEN-->
+	<meta name="_csrf" th:content="${_csrf.token}" />
+	<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+</head>
+
+<body>
+	<!--HEADER-->
+	<nav th:replace="html/navbar"></nav>
+	<div id="confetti"></div>
+
+	<div id="container">
+		<h3>RESULTADOS</h3>
+		<!--CHART-->
+		<div id="graphic_ranking_chart" style="width:400; height:300"></div>
+		<table id="data_ranking" class="display table">
+			<tbody id="data_ranking_table">
+				<tr>
+					<th scope="col">Posición</th>
+					<th scope="col">Usuario</th>
+					<th scope="col">Puntuación</th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!--FOOTER-->
+	<footer>
+		<div id="copyright">
+			<div id="redes"><img th:src="@{/img/twitter.png}" alt="Imagen de twitter">
+				<img th:src="@{/img/facebook.png}" alt="Imagen de facebook"></div>
+			<hr />
+			Aviso legal | Política de privacidad | Accesibilidad | Usabilidad<br />
+			&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano
+		</div>
+
+	</footer>
+
+</body>
+
+</html>

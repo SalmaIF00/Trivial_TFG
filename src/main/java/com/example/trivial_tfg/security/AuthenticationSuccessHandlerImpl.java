@@ -36,9 +36,11 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 		session.setAttribute("usuario", authUser);
 		session.setAttribute("usuario.nombre", authUser.getNombre());
 		session.setAttribute("usuario.id", authUser.getId_usuario());
+		session.setAttribute("usuario.rol", authUser.getRol());
 
 		boolean isUsuario = false;
 		boolean isAdmin = false;
+		boolean isProfe = false;
 		final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		for (final GrantedAuthority grantedAuthority : authorities) {
 			if (grantedAuthority.getAuthority().equals("Alumno")) {
@@ -49,12 +51,16 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 				isAdmin = true;
 				session.setAttribute("usuario.rol", grantedAuthority.getAuthority().equals("Administrador"));
 				break;
+			} else if (grantedAuthority.getAuthority().equals("Profesor")){
+				isProfe = true;
+				session.setAttribute("usuario.rol", grantedAuthority.getAuthority().equals("Profesor"));
+				break;
 			}
 		}
 
 		String targetUrl;
-		if (isUsuario) {
-			targetUrl = "/asignaturas";
+		if (isUsuario || isProfe) {
+			targetUrl = "/perfil";
 		} else if (isAdmin) {
 			targetUrl = "/index";
 		} else {

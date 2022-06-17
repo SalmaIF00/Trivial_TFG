@@ -18,5 +18,10 @@
 	"pwd_usuario":"Contraseña",
 	"curso":"Curso",
 	"primero":"Primero",
-	"segundo":"Segundo"
+	"segundo":"Segundo",
+	"frase_sesion":" ¡Inicia sesión y comienza nuestro test!",
+	"boton_inicio": "Iniciar sesión",
+	"frase_registro": "¿Aún no tienes cuenta? No te preocupes, regístrate aquí.",
+	"boton_registro": "Regístrate",
+	"footer": "Aviso legal | Política de privacidad | Accesibilidad | Usabilidad"
 }

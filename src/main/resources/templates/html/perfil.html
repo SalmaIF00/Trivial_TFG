@@ -43,8 +43,10 @@
 				<!--CURSO-->
 				<div th:text="'Curso: '+${u.curso.id_curso}"></div><br />
 
-				<!--BOTÓN PARA MOSTRAR LOS RESULTADOS-->
+				<!--BOTÓN PARA IR A ASIGNATURAS-->
+				<div th:if="${session.usuario.rol != 'Profesor'}">
 				<a th:href="@{/asignaturas}" class="btn btn-primary">¡A jugar!</a>
+				</div>
 			</div>
 		</div>
 	</div>

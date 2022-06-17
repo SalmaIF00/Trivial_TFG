@@ -49,12 +49,12 @@
 		<!--CONTAINER: LOGING & SIGNUP-->
 		<div id="container">
 			<div id="login">
-				<p>¡Inicia sesión y comienza nuestro test!</p>
-				<button type="button" data-toggle="modal" data-target="#modalLogin">Iniciar sesión</button>
+				<p data-i18n="frase_sesion">¡Inicia sesión y comienza nuestro test!</p>
+				<button type="button" data-toggle="modal" data-target="#modalLogin" data-i18n="boton_inicio">Iniciar sesión</button>
 			</div>
 			<div id="signup">
-				<p>¿Aún no tienes cuenta? No te preocupes, regístrate aquí.</p>
-				<button type="button" data-toggle="modal" data-target="#modalSignup">Regístrate</button>
+				<p data-i18n="frase_registro">¿Aún no tienes cuenta? No te preocupes, regístrate aquí.</p>
+				<button type="button" data-toggle="modal" data-target="#modalSignup" data-i18n="boton_registro">Regístrate</button>
 			</div>
 		</div>
 	</section>
@@ -64,7 +64,7 @@
 			<div id="redes"><img th:src="@{/img/twitter.png}" alt="Imagen de twitter">
 				<img th:src="@{/img/facebook.png}" alt="Imagen de facebook"></div>
 			<hr />
-			Aviso legal | Política de privacidad | Accesibilidad | Usabilidad<br />
+			<span data-i18n="footer">Aviso legal | Política de privacidad | Accesibilidad | Usabilidad</span><br />
 			&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano
 		</div>
 

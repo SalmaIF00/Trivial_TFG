@@ -19,6 +19,7 @@
 		crossorigin="anonymous"></script>
 	<title>Preguntas</title>
 
+	<script th:src="@{/js/pregunta.js}"></script>
 </head>
 
 <body>
@@ -27,7 +28,7 @@
 	<!--ASIGNATURAS-->
 
 	<form class="row contenedor" th:action="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}" method="get">
-
+		<span id="id_a" th:text="${id_asignatura}" hidden></span>
 		<div class="col-12 pregunta" th:text="${pregunta}">PREGUNTA</div>
 		<div class="col-6 " th:each="respuesta:${respuesta}">
 			<input class="checkbox-tools" type="radio" name="tools">

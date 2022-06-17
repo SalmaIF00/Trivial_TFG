@@ -1,0 +1,22 @@
+{
+	"app-title": "Trivial",
+	"inicio" : "INICIO",
+	"asignaturas": "ASIGNATURAS",
+	"sesion": "INICIO SESIÓN",
+	"registro": "REGÍSTRATE",
+	"perfil": "Mi perfil",
+	"config": "Configuración",
+	"cerrar_sesion": "Cerrar sesión",
+	"inicio_sesion": "Iniciar sesión",
+	"usuario": "Nombre de usuario",
+	"pwd": "Contraseña",
+	"iniciar": "Iniciar",
+	"registrar": "Registrar usuario",
+	"nombre": "Nombre",
+	"apellidos":"Apellidos",
+	"nom_usuario":"Nombre de usuario",
+	"pwd_usuario":"Contraseña",
+	"curso":"Curso",
+	"primero":"Primero",
+	"segundo":"Segundo"
+}

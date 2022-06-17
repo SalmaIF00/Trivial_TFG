@@ -18,5 +18,10 @@
 	"pwd_usuario":"Password",
 	"curso":"Grade",
 	"primero":"First",
-	"segundo":"Second"
+	"segundo":"Second",
+	"frase_sesion":" ¡Log in and start our test!",
+	"boton_inicio": "Log in",
+	"frase_registro": "¿Don't you have an account'? Don't worry, join here!",
+	"boton_registro": "Sign up",
+	"footer": "Legal | Privacy policy | Accessibility | Usability"
 }
