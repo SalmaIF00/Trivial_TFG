@@ -1,0 +1,43 @@
+@media screen and (max-width: 320px) {
+  	#login, #signup{
+		width: 100% !important;
+	}
+	
+	#login{
+		padding-bottom: 0.5em;
+		border-bottom: solid black 0.1em;
+	}
+	
+	#carouselExampleIndicators img, .carousel-item{
+		height: 20em !important;
+	}
+		 
+	.carousel{
+		margin: 0 !important;
+	}
+	
+	#copyright{
+		font-size: 90% !important;
+	}
+	
+	#copyright h5{
+		width: 80% !important;
+	}
+	
+	.navbar div .navbar-nav:nth-child(2){
+		float: left !important;
+	}
+}
+
+@media screen and (max-height: 320px) {
+	#carouselExampleIndicators img, .carousel-item{
+			height: 25em !important;
+		} 
+	.carousel{
+		margin: 0 !important;
+	}
+	#container #login p, #container #signup p{
+		font-size: 85% !important;
+		
+	}
+}

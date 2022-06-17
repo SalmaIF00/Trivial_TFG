@@ -1,0 +1,7 @@
+.navbar{
+	justify-content: flex-end !important;
+}
+
+.navbar-light .navbar-toggler{
+	background-color: white;
+}
