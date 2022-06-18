@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.trivial_tfg.entity.Resultado;
+import com.example.trivial_tfg.entity.Usuario;
 import com.example.trivial_tfg.services.ResultadoService;
 
 @Controller
@@ -42,11 +43,21 @@ public class ResultadoController {
 	}
 
 	// CONTROLADOR PARA MOSTRAR TODOS LOS RESULTADOS
-//	@ResponseBody
-//	@RequestMapping(method = RequestMethod.GET, value = "/ranking")
-//	public List<Resultado> resultado(Model model, HttpSession session) {
-//		List<Resultado> resultados = (List<Resultado>) resultadoService.buscarResultados();
-//
-//		return resultados;
-//	}
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.GET, value = "/resultados_ranking")
+	public List<Resultado> resultado(Model model) {
+		List<Resultado> resultados = (List<Resultado>) resultadoService.buscarResultados();
+
+		return resultados;
+	}
+	
+	// CONTROLADOR PARA MOSTRAR TODOS LOS RESULTADOS
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.GET, value = "/resultados_perfil")
+	public List<Resultado> resultadoperfil(Model model, HttpSession session) {
+		Usuario u = (Usuario) session.getAttribute("usuario");
+		List<Resultado> resultados = (List<Resultado>) resultadoService.buscarPorUsuario(u.getId_usuario());
+
+		return resultados;
+	}
 }

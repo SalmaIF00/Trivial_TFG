@@ -23,88 +23,100 @@ function createDate() {
 // instantiates the pie chart, passes in the data and
 // draws it.
 function drawPerfilChart() {
-	const data = ['7', '4', '2', '6', '3', '8'];
-	console.log(data);
+	var token = $("meta[name='_csrf']").attr("content");
 
-	let asig_1 = parseInt(data[0]);
-	let asig_2 = parseInt(data[1]);
-	let asig_3 = parseInt(data[2]);
-	let asig_4 = parseInt(data[3]);
-	let asig_5 = parseInt(data[4]);
-	let asig_6 = parseInt(data[5]);
+	fetch('/resultados_perfil',
+		{
+			headers: {
+				"Content-Type": "application/json; charset=utf-8",
+				"X-CSRF-TOKEN": token
+			},
+		})
+		.then(res => res.json())
+		.then(resultados => {
+			var asig_1 = 0;
+			var asig_2 = 0;
+			var asig_3 = 0;
+			var asig_4 = 0;
+			for (let i = 0; i <= resultados.length; i++) {
+				switch (i) {
+					case 0:
+						asig_1 += 1;
+						break;
+					case 1:
+						asig_2 += 1;
+						break;
+					case 2:
+						asig_3 += 1;
+						break;
+					default:
+						asig_4 += 1;
+						break;
+				}
+			}
 
-	var final_data = google.visualization.arrayToDataTable([
-		['Asignatura', 'Test'],
-		['asignatura_1', asig_1],
-		['asignatura_2', asig_2],
-		['asignatura_3', asig_3],
-		['asignatura_4', asig_4],
-		['asignatura_5', asig_5],
-		['asignatura_6', asig_6]
-	]);
+			var final_data = google.visualization.arrayToDataTable([
+				['Asignatura', 'Test'],
+				['asignatura_1', asig_1],
+				['asignatura_2', asig_2],
+				['asignatura_3', asig_3],
+				['asignatura_4', asig_4],
+			]);
 
-	var options = {
+			var options = {
 
-	};
+			};
 
-	var chart = new google.visualization.PieChart(document.getElementById('graphic_profile_chart'));
+			var chart = new google.visualization.PieChart(document.getElementById('graphic_profile_chart'));
 
-	chart.draw(final_data, options);
+			chart.draw(final_data, options);
+
+		})
+
 }
 
 ///////////////////////////////////////////////////////////
 ///////////////////////DATA TABLE//////////////////////////
 
 function drawPerfilDataTable() {
-	// ------- Version 1------------
-	// Add rows + data at the same time
-	// -----------------------------
-	random = createDate();
-	console.log(random);
-	var table = document.getElementById('data_profile_table');
-	for (let i = 0; i <= random.length; i++) {
-		// Creando los 'td' que almacenará cada parte de la información del usuario actual
-		let name = `<td>Usuario</td>`;
-		let subject = `<td>Asignatura</td>`;
-		let posicion = `<td>${arrRandom[i]}</td>`;
+	var token = $("meta[name='_csrf']").attr("content");
 
-		table.innerHTML += `<tr>${name}${subject}${posicion}</tr>`;
-	}
+	fetch('/resultados_perfil',
+		{
+			headers: {
+				"Content-Type": "application/json; charset=utf-8",
+				"X-CSRF-TOKEN": token
+			},
+		})
+		.then(res => res.json())
+		.then(resultados => {
+			var table = document.getElementById('data_profile_table');
+			console.log(resultados);
+			for (let i = 0; i <= resultados.length; i++) {
+				// Creando los 'td' que almacenará cada parte de la información del usuario actual
+				let name = `<td>Usuario</td>`;
+				let a = `<td>Asignatura</td>`;
+				let r = `<td>${resultados[i].resultado}</td>`;
 
-	//	var final_data = google.visualization.arrayToDataTable([
-	//		['Usuario', 'Puntuación'],
-	//		['Bob', cuarto],
-	//		['Alice', quinto],
-	//		['Frank', sexto],
-	//		['Floyd', septimo],
-	//		['Fritz', octavo],
-	//		['Jessica', noveno],
-	//		['Sarah', decimo]
-	//	], false);
-	//
-	//	var view = new google.visualization.DataView(final_data);
-	//	view.setRows(view.getFilteredRows([{ column: 1, minValue: decimo }]));
-	//
-	//
-	//
-	//	var table = new google.visualization.Table(document.getElementById('data_table'));
-	//	table.draw(view, { sortColumn: 1 });
+				table.innerHTML += `<tr>${name}${a}${r}</tr>`;
+			}
+		})
 }
 
 ///////////////////////////////////////////////////////////
 ////////////////////CAMBIOS//////////////////////////
-function tabla(){
+function tabla() {
 	var tabla = document.getElementById("tabla");
 	tabla.removeAttribute("style");
-	
+
 	var donut = document.getElementById("donut");
-	donut.setAttribute("style","display:none");
+	donut.setAttribute("style", "display:none");
 }
 
-function grafico(){
+function grafico() {
 	var donut = document.getElementById("donut");
 	donut.removeAttribute("style");
-	
+
 	var tabla = document.getElementById("tabla");
-	tabla.setAttribute("style","display:none");
+	tabla.setAttribute("style", "display:none");
 }

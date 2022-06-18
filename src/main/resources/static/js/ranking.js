@@ -365,71 +365,113 @@ google.charts.setOnLoadCallback(drawDataTable);
 // instantiates the pie chart, passes in the data and
 // draws it.
 function drawChart() {
-	const data = ['0', '4', '2', '6', '3', '8', '5', '6', '10', '7', '3', '6', '9', '1'];
-	data.sort((a, b) => { return a - b });
-	console.log(data);
 
-	const length = data.length;
-	const primero = parseInt(data[length - 1]);
-	const segundo = parseInt(data[length - 2]);
-	const tercero = parseInt(data[length - 3]);
+	var token = $("meta[name='_csrf']").attr("content");
 
-	var final_data = google.visualization.arrayToDataTable([
-		["Element", "Density", { role: "style" }],
-		["Pepe", segundo, "silver "],
-		["Ramona", primero, "gold "],
-		["Otis", tercero, "#b87333"]
-	]);
-
-	var view = new google.visualization.DataView(final_data);
-	view.setColumns([0, 1,
+	fetch('/resultados_ranking',
 		{
-			calc: "stringify",
-			sourceColumn: 1,
-			type: "string",
-			role: "annotation"
-		},
-		2]);
+			headers: {
+				"Content-Type": "application/json; charset=utf-8",
+				"X-CSRF-TOKEN": token
+			},
+		})
+		.then(res => res.json())
+		.then(resultados => {
+			resultados.sort((b, a) => { return a.resultado - b.resultado });
 
-	var options = {
-		width: 1000,
-		height: 150,
-		border: "none",
-		gridlines: { color: "rgb(0,0,0,0)" }, //Elimina las cuadrículas del gráfico
-		bar: { groupWidth: "none" },
-		legend: { position: "none" },
-		backgroundColor: "none",
-	
-	};
+			const primero = parseInt(resultados[0].resultado);
+			const segundo = parseInt(resultados[1].resultado);
+			const tercero = parseInt(resultados[2].resultado);
+
+			var final_data = google.visualization.arrayToDataTable([
+				["Element", "Density", { role: "style" }],
+				["Pepe", segundo, "silver "],
+				["Ramona", primero, "gold "],
+				["Otis", tercero, "#b87333"]
+			]);
+
+			var view = new google.visualization.DataView(final_data);
+			view.setColumns([0, 1,
+				{
+					calc: "stringify",
+					sourceColumn: 1,
+					type: "string",
+					role: "annotation"
+				},
+				2]);
+
+			var options = {
+				width: 1000,
+				height: 150,
+				border: "none",
+				gridlines: { color: "rgb(0,0,0,0)" }, //Elimina las cuadrículas del gráfico
+				bar: { groupWidth: "none" },
+				legend: { position: "none" },
+				backgroundColor: "none",
+
+			};
 
 
-	var chart = new google.visualization.ColumnChart(document.getElementById("graphic_ranking_chart"));
-	chart.draw(view, options);
+			var chart = new google.visualization.ColumnChart(document.getElementById("graphic_ranking_chart"));
+			chart.draw(view, options);
+		})
+
+
+
+
 }
 
 ///////////////////////////////////////////////////////////
 ///////////////////////DATA TABLE//////////////////////////
 
 function drawDataTable() {
+	var token = $("meta[name='_csrf']").attr("content");
+
+	fetch('/resultados_ranking',
+		{
+			headers: {
+				"Content-Type": "application/json; charset=utf-8",
+				"X-CSRF-TOKEN": token
+			},
+		})
+		.then(res => res.json())
+		.then(resultados => {
+			resultados.sort((b, a) => { return a.resultado - b.resultado });
+			console.log(resultados);
+			var contador = 4;
+			var table = document.getElementById('data_ranking_table');
+			for (let i = 3; i <= 9; i++) {
+				// Creando los 'td' que almacenará cada parte de la información del usuario actual
+				let cont = `<td>${contador}º</td>`;
+				let name = `<td>${resultados[i].id_usuario}</td>`;
+				let resultado = `<td>${resultados[i].resultado}</td>`;
+
+				table.innerHTML += `<tr>${cont}${name}${resultado}</tr>`;
+				contador += 1;
+			}
+		})
+
+
+
 	// ------- Version 1------------
 	// Add rows + data at the same time
 	// -----------------------------
-	const nombre = ['Jessica', 'Bob', 'Frank', 'Fritz', 'Floyd', 'Marcus', 'Renzo', 'Adam', 'Sarah', 'Vero', 'Marta', 'Mery', 'ALvin', 'Peter'];
-	const data = ['0', '4', '2', '6', '3', '8', '5', '6', '10', '7', '3', '6', '9', '1'];
-	data.sort((a, b) => { return a - b });
-	console.log(data);
-
-	var contador = 4;
-	var table = document.getElementById('data_ranking_table');
-	for (let i = 9; i >= 3; i--) {
-		// Creando los 'td' que almacenará cada parte de la información del usuario actual
-		let cont = `<td>${contador}º</td>`;
-		let name = `<td>${nombre[i]}</td>`;
-		let posicion = `<td>${data[i]}</td>`;
-
-		table.innerHTML += `<tr>${cont}${name}${posicion}</tr>`;
-		contador += 1;
-	}
+	//	const nombre = ['Jessica', 'Bob', 'Frank', 'Fritz', 'Floyd', 'Marcus', 'Renzo', 'Adam', 'Sarah', 'Vero', 'Marta', 'Mery', 'ALvin', 'Peter'];
+	//	const data = ['0', '4', '2', '6', '3', '8', '5', '6', '10', '7', '3', '6', '9', '1'];
+	//	data.sort((a, b) => { return a - b });
+	//	console.log(data);
+	//
+	//	var contador = 4;
+	//	var table = document.getElementById('data_ranking_table');
+	//	for (let i = 9; i >= 3; i--) {
+	//		// Creando los 'td' que almacenará cada parte de la información del usuario actual
+	//		let cont = `<td>${contador}º</td>`;
+	//		let name = `<td>${nombre[i]}</td>`;
+	//		let posicion = `<td>${data[i]}</td>`;
+	//
+	//		table.innerHTML += `<tr>${cont}${name}${posicion}</tr>`;
+	//		contador += 1;
+	//	}
 
 	//	var final_data = google.visualization.arrayToDataTable([
 	//		['Usuario', 'Puntuación'],
