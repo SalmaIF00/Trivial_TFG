@@ -47,7 +47,7 @@ public class ResultadoController {
 	@RequestMapping(method = RequestMethod.GET, value = "/resultados_ranking")
 	public List<Resultado> resultado(Model model) {
 		List<Resultado> resultados = (List<Resultado>) resultadoService.buscarResultados();
-
+		
 		return resultados;
 	}
 	

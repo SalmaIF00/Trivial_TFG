@@ -14,6 +14,9 @@
 ////////////////////////////BODY/////////////////////////////
 body{
 	font-family: 'Poppins', 'Amatic SC', 'Comfortaa' !important;
+	width: 1024px;
+	height: 768px;
+	margin: auto !important;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -79,23 +82,19 @@ ol, ul{
 
 ///////////////////////////////////////////////////////////////
 ////////////////////////////FOOTER/////////////////////////////
-#redes{
-	img{
-		height: 2em;
-	width: 2em;
-	margin: 0.5em;
-	}
-	
-}
-
 #copyright{
-	height: 10vh;
-	background-color: $principal-background;
-	color: $letter;
-	clear: both;
-	text-align: right;
-	display: flex !important;
-	align-items: center;
-	justify-content: center;
+	height: 7.5em;
+	color: white;
 	padding: 0.5em;
+	text-align: right;
+	background-color: $principal-background;
+	#redes{
+		text-align: left;
+		float: left;
+		width: 20%;
+		img{
+			width: 2em;
+			height: 2em;
+		}
+	}
 }

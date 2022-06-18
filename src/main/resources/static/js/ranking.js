@@ -443,52 +443,11 @@ function drawDataTable() {
 			for (let i = 3; i <= 9; i++) {
 				// Creando los 'td' que almacenará cada parte de la información del usuario actual
 				let cont = `<td>${contador}º</td>`;
-				let name = `<td>${resultados[i].usuario.nombre_usuario}</td>`;
+				let name = `<td>Usuario</td>`;
 				let resultado = `<td>${resultados[i].resultado}</td>`;
 
 				table.innerHTML += `<tr>${cont}${name}${resultado}</tr>`;
 				contador += 1;
 			}
 		})
-
-
-
-	// ------- Version 1------------
-	// Add rows + data at the same time
-	// -----------------------------
-	//	const nombre = ['Jessica', 'Bob', 'Frank', 'Fritz', 'Floyd', 'Marcus', 'Renzo', 'Adam', 'Sarah', 'Vero', 'Marta', 'Mery', 'ALvin', 'Peter'];
-	//	const data = ['0', '4', '2', '6', '3', '8', '5', '6', '10', '7', '3', '6', '9', '1'];
-	//	data.sort((a, b) => { return a - b });
-	//	console.log(data);
-	//
-	//	var contador = 4;
-	//	var table = document.getElementById('data_ranking_table');
-	//	for (let i = 9; i >= 3; i--) {
-	//		// Creando los 'td' que almacenará cada parte de la información del usuario actual
-	//		let cont = `<td>${contador}º</td>`;
-	//		let name = `<td>${nombre[i]}</td>`;
-	//		let posicion = `<td>${data[i]}</td>`;
-	//
-	//		table.innerHTML += `<tr>${cont}${name}${posicion}</tr>`;
-	//		contador += 1;
-	//	}
-
-	//	var final_data = google.visualization.arrayToDataTable([
-	//		['Usuario', 'Puntuación'],
-	//		['Bob', cuarto],
-	//		['Alice', quinto],
-	//		['Frank', sexto],
-	//		['Floyd', septimo],
-	//		['Fritz', octavo],
-	//		['Jessica', noveno],
-	//		['Sarah', decimo]
-	//	], false);
-	//
-	//	var view = new google.visualization.DataView(final_data);
-	//	view.setRows(view.getFilteredRows([{ column: 1, minValue: decimo }]));
-	//
-	//
-	//
-	//	var table = new google.visualization.Table(document.getElementById('data_table'));
-	//	table.draw(view, { sortColumn: 1 });
 }
