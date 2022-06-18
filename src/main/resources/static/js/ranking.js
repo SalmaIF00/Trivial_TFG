@@ -443,7 +443,7 @@ function drawDataTable() {
 			for (let i = 3; i <= 9; i++) {
 				// Creando los 'td' que almacenará cada parte de la información del usuario actual
 				let cont = `<td>${contador}º</td>`;
-				let name = `<td>${resultados[i].id_usuario}</td>`;
+				let name = `<td>${resultados[i].usuario.nombre_usuario}</td>`;
 				let resultado = `<td>${resultados[i].resultado}</td>`;
 
 				table.innerHTML += `<tr>${cont}${name}${resultado}</tr>`;

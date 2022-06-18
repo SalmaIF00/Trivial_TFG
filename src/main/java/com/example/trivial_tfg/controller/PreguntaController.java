@@ -68,28 +68,28 @@ public class PreguntaController {
 		model.addAttribute("pregunta", p.getPregunta());
 
 		request.getSession().setAttribute("contador", cont + 1);
-//		if (cont == 10) {
-//			return "html/ranking";
-//		} else {
+		if (cont == 10) {
+			return "html/ranking";
+		} else {
 			return "html/preguntas_opciones";
-//		}
+		}
 	}
 	
-	@PostMapping("/pregunta/{id_asignatura}")
-	public String persistPregunta(@RequestParam("respuesta") String respuesta, HttpServletRequest request){
-		// Recuperamos la sesión de respuestas
-		List<Integer> resp = (List<Integer>) request.getSession().getAttribute("respuesta");
-		Integer cont = (Integer) request.getSession().getAttribute("contador");
-		
-		if(respuesta != null) {
-			request.getSession().setAttribute("respuesta", respuesta);
-		}
-		
-		if(cont == 10) {
-			return "html/raning";
-		}else {
-			return "html/preguntas_opciones";
-		}
-	}
+//	@PostMapping("/pregunta/{id_asignatura}")
+//	public String persistPregunta(@RequestParam("respuesta") String respuesta, HttpServletRequest request){
+//		// Recuperamos la sesión de respuestas
+//		List<Integer> resp = (List<Integer>) request.getSession().getAttribute("respuesta");
+//		Integer cont = (Integer) request.getSession().getAttribute("contador");
+//		
+//		if(respuesta != null) {
+//			request.getSession().setAttribute("respuesta", respuesta);
+//		}
+//		
+//		if(cont == 10) {
+//			return "html/ranking";
+//		}else {
+//			return "html/preguntas_opciones";
+//		}
+//	}
 
 }
