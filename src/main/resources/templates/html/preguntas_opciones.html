@@ -1,24 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" dir="ltr">
 
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" th:href="@{/css/Preguntas_opciones.css}">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
+
 	<title>Preguntas</title>
 
+	<link rel="stylesheet" th:href="@{/css/Preguntas_opciones.css}">
 	<script th:src="@{/js/pregunta.js}"></script>
 </head>
 
@@ -27,30 +17,35 @@
 	<nav th:replace="html/navbar"></nav>
 	<!--ASIGNATURAS-->
 
-	<form class="row contenedor" th:action="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}" method="get">
-		<span id="id_a" th:text="${id_asignatura}" hidden></span>
-		<div class="col-12 " id="respuesta"th:text="${pregunta}">PREGUNTA</div>
-		<div class="col-6 " th:each="respuesta:${respuesta}">
-		 <a th:href="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}"    method="POST">
-    <div class="col-12 pregunta"   name="respuesta" th:text="${respuesta.respuesta}" value="{resultado}(resultado=${respuesta.resultado}) "></div>
-    
-</a>
-		</div>
+	<section>
+		<form class="row contenedor" th:action="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}"
+			method="get">
+			<span id="id_a" th:text="${id_asignatura}" hidden></span>
+			<div class="col-12 " id="respuesta" th:text="${pregunta}">PREGUNTA</div>
+			<div class="col-6 " th:each="respuesta:${respuesta}">
+				<a th:href="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}" method="POST">
+					<div class="col-12 pregunta" name="respuesta" th:text="${respuesta.respuesta}"
+						value="{resultado}(resultado=${respuesta.resultado}) "></div>
+
+				</a>
+			</div>
 
 
->
-	</form>
-	<!--FOOTER-->
-	<footer id="footer">
-		<div id="copyright">
-			<div id="redes"><img th:src="@{/img/twitter.png}" alt="Imagen de twitter">
-				<img th:src="@{/img/facebook.png}" alt="Imagen de facebook"></div>
-			<hr />
-			Aviso legal | Política de privacidad | Accesibilidad | Usabilidad<br />
-			&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano
-		</div>
 
-	</footer>
+		</form>
+		<section>
+			<!--FOOTER-->
+			<footer>
+				<div id="copyright">
+					<div id="redes"><img th:src="@{/img/twitter.png}" alt="Imagen de twitter">
+						<img th:src="@{/img/facebook.png}" alt="Imagen de facebook"></div>
+					<h5 class="card-title" data-i18n="footer">Aviso legal | Política de privacidad | Accesibilidad |
+						Usabilidad</h5>
+					<p class="card-text">&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano</p>
+
+				</div>
+
+			</footer>
 </body>
 
 </html>

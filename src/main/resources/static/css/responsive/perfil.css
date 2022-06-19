@@ -11,6 +11,29 @@
 	.card{
 		width: 100% !important;
 	}
+	
+	#perfilUsuario{
+		width: 100% !important;
+		float: unset !important;
+	}
+	
+	.card-body{
+		padding: 0 !important;
+	}
+	#grafico{
+		margin-top: 2em;
+	}
+	
+	#graphic_profile_chart{
+		display: unset !important;
+		margin: 0 !important;
+	}
+	
+	#donut svg, #donut div{
+		width: 320px !important;
+		height: 400px !important;
+	}
+	
 	#copyright{
 		width: 320px !important;
 		clear:both;

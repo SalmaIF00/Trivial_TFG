@@ -1,0 +1,25 @@
+@media screen and (max-width: 320px) {
+	body{
+		width: 320px !important;
+		height: 658px !important;
+	}
+	
+	section{
+		clear: both;
+	}
+	
+	.boton_asignatura{
+		height: 1em !important;
+		padding: 2.5em !important;	
+	}	
+	
+	footer, #copyright{
+		width: 320px !important;
+		clear:both;
+	}
+	
+}
+
+@media screen and (max-height: 320px) {
+	
+}

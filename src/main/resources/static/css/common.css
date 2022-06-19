@@ -114,7 +114,7 @@ h3 {
 
 #perfilUsuario {
   width: 50%;
-  height: 70%;
+  height: 80%;
   float: left;
 }
 #perfilUsuario .card {
@@ -157,7 +157,7 @@ h3 {
 
 #grafico {
   overflow: scroll;
-  height: 70%;
+  height: 80%;
 }
 #grafico .card {
   height: 100%;
