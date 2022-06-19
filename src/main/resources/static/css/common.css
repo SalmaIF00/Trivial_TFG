@@ -5,6 +5,10 @@
 /****************SUBJECTS***************************/
 /***********OPOSITE-COLOR-SUBJECTS******************/
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Comfortaa:wght@600&family=Poppins&display=swap");
+section {
+  height: 80%;
+}
+
 #carouselExampleIndicators {
   clear: both;
 }
@@ -110,24 +114,26 @@ h3 {
 
 #perfilUsuario {
   width: 50%;
+  height: 70%;
   float: left;
-  font-size: 150%;
 }
 #perfilUsuario .card {
-  height: 80%;
+  height: 100%;
 }
 
 #donut {
-  height: 64vh;
+  height: 60%;
 }
 
 #graphic_profile_chart {
   width: 50%;
-  height: 60vh;
+  display: flex;
+  margin: auto;
   margin-top: 3em;
 }
 #graphic_profile_chart div {
   width: 100%;
+  position: unset;
 }
 #graphic_profile_chart div g:nth-child(1) rect {
   visibility: hidden;
@@ -150,12 +156,14 @@ h3 {
 }
 
 #grafico {
-  height: 80vh;
   overflow: scroll;
+  height: 70%;
+}
+#grafico .card {
+  height: 100%;
 }
 #grafico .card-header {
-  position: fixed;
-  width: 50%;
+  width: 100%;
 }
 
 .card-header {
@@ -205,13 +213,14 @@ body {
   font-family: "Poppins", "Amatic SC", "Comfortaa" !important;
   width: 1920px;
   height: 1080px;
+  font-size: 150% !important;
   margin: auto !important;
 }
 
 .navbar {
   background-color: black !important;
   width: 1920px;
-  height: 7.5em;
+  height: 10%;
   margin-bottom: 0 !important;
   float: right;
 }
@@ -264,11 +273,10 @@ ol, ul {
 #copyright {
   width: 1920px;
   margin: auto;
-  height: 7.5em;
+  height: 10%;
   color: white;
   padding: 0.5em;
   text-align: right;
-  position: fixed;
   bottom: 0;
   background-color: black;
 }

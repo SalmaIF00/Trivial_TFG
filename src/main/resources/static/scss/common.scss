@@ -16,15 +16,17 @@ body{
 	font-family: 'Poppins', 'Amatic SC', 'Comfortaa' !important;
 	width: 1920px;
 	height: 1080px;
+	font-size: 150% !important;
 	margin: auto !important;
 }
+
 
 ///////////////////////////////////////////////////////////////
 ////////////////////////////NAVBAR/////////////////////////////
 .navbar{
 	background-color: $principal-background !important;
 	width: 1920px;
-	height: 7.5em;
+	height: 10%;
 	margin-bottom: 0 !important;
 	float: right;
 	div{
@@ -61,6 +63,7 @@ ol, ul{
 	height: 3em;
 }
 
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -85,14 +88,13 @@ ol, ul{
 #copyright{
 	width: 1920px;
 	margin: auto;
-	height: 7.5em;
+	height: 10%;
 	color: white;
 	padding: 0.5em;
 	text-align: right;
-	position: fixed;
 	bottom: 0;
 	background-color: $principal-background;
-	#redes{
+	#redes{		
 		text-align: left;
 		float: left;
 		width: 20%;
