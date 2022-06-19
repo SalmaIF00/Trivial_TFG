@@ -22,15 +22,6 @@ public class PreguntaController {
 	@Autowired
 	private PreguntaService preguntaService;
 
-	/**
-	 * Guiarse con el springQuiz, cada muestra de pregunta era un controlador
-	 * distinto Intentar hacer un controlador por pregunta, almacenando el
-	 * id_pregunta en un array estático Dicho array no podrá repetirse (if
-	 * id_pregunta != array) se almacena y se muestra.
-	 * 
-	 * @return
-	 */
-
 	// CONTROLADOR MOSTRAR PREGUNTAS ALEATORIAS
 	@GetMapping("/pregunta/{id_asignatura}")
 	public String pregunta(HttpSession session,	@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpServletRequest request) {
@@ -75,21 +66,4 @@ public class PreguntaController {
 		}
 	}
 	
-//	@PostMapping("/pregunta/{id_asignatura}")
-//	public String persistPregunta(@RequestParam("respuesta") String respuesta, HttpServletRequest request){
-//		// Recuperamos la sesión de respuestas
-//		List<Integer> resp = (List<Integer>) request.getSession().getAttribute("respuesta");
-//		Integer cont = (Integer) request.getSession().getAttribute("contador");
-//		
-//		if(respuesta != null) {
-//			request.getSession().setAttribute("respuesta", respuesta);
-//		}
-//		
-//		if(cont == 10) {
-//			return "html/ranking";
-//		}else {
-//			return "html/preguntas_opciones";
-//		}
-//	}
-
 }

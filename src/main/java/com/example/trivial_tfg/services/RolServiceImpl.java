@@ -39,10 +39,6 @@ public class RolServiceImpl implements RolService {
 		rolRepository.deleteById(id_rol);
 	}
 
-//	@Override
-//	public int guardarUsuarioRol(Long id_usuario, Long id_rol) {
-//		return 	rolRepository.saveUR(id_usuario, id_rol);
-//		
-//	}
+
 
 }

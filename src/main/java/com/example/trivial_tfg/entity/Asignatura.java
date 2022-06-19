@@ -51,8 +51,6 @@ public class Asignatura implements Serializable {
 
 	// GETTERS Y SETTERS
 
-
-
 	public Long getId_asignatura() {
 		return IdAsignatura;
 	}
