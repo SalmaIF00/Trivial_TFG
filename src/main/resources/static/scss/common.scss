@@ -6,7 +6,7 @@
 @import 'perfil.scss';
 @import 'navbar.scss';
 
-///////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 //////////////////////IMPORT FONTS/////////////////////////
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Comfortaa:wght@600&family=Poppins&display=swap');
 
@@ -16,16 +16,18 @@ body{
 	font-family: 'Poppins', 'Amatic SC', 'Comfortaa' !important;
 	width: 1920px;
 	height: 1080px;
+	font-size: 150% !important;
 	margin: auto !important;
 }
+
 
 ///////////////////////////////////////////////////////////////
 ////////////////////////////NAVBAR/////////////////////////////
 .navbar{
 	background-color: $principal-background !important;
-	width: 100%;
-	margin: 0 !important;
-	border-radius: 0 !important;
+	width: 1920px;
+	height: 10%;
+	margin-bottom: 0 !important;
 	float: right;
 	div{
 		ul{
@@ -61,6 +63,7 @@ ol, ul{
 	height: 3em;
 }
 
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -83,12 +86,15 @@ ol, ul{
 ///////////////////////////////////////////////////////////////
 ////////////////////////////FOOTER/////////////////////////////
 #copyright{
-	height: 7.5em;
+	width: 1920px;
+	margin: auto;
+	height: 10%;
 	color: white;
 	padding: 0.5em;
 	text-align: right;
+	bottom: 0;
 	background-color: $principal-background;
-	#redes{
+	#redes{		
 		text-align: left;
 		float: left;
 		width: 20%;

@@ -57,14 +57,15 @@ function drawPerfilChart() {
 
 			var final_data = google.visualization.arrayToDataTable([
 				['Asignatura', 'Test'],
-				['asignatura_1', asig_1],
-				['asignatura_2', asig_2],
-				['asignatura_3', asig_3],
-				['asignatura_4', asig_4],
+				['asignatura_1', parseInt(asig_1)],
+				['asignatura_2', parseInt(asig_2)],
+				['asignatura_3', parseInt(asig_3)],
+				['asignatura_4', parseInt(asig_4)],
 			]);
 
 			var options = {
-
+				width: 500,
+				height: 500
 			};
 
 			var chart = new google.visualization.PieChart(document.getElementById('graphic_profile_chart'));
@@ -92,7 +93,7 @@ function drawPerfilDataTable() {
 		.then(resultados => {
 			var table = document.getElementById('data_profile_table');
 			console.log(resultados);
-			for (let i = 0; i <= resultados.length; i++) {
+			for (let i = 0; i <= resultados.length-1; i++) {
 				// Creando los 'td' que almacenará cada parte de la información del usuario actual
 				let name = `<td>Usuario</td>`;
 				let a = `<td>Asignatura</td>`;
