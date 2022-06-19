@@ -1,4 +1,99 @@
 ///////////////////////////////////////////////////////////
+////////////////////GRAPHIC CHART//////////////////////////
+
+// Load the Visualization API and the corechart package.
+google.charts.load('current', { 'packages': ['corechart'] });
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawDataTable);
+
+function drawChart() {
+
+	var token = $("meta[name='_csrf']").attr("content");
+
+	fetch('/resultados_ranking',
+		{
+			headers: {
+				"Content-Type": "application/json; charset=utf-8",
+				"X-CSRF-TOKEN": token
+			},
+		})
+		.then(res => res.json())
+		.then(resultados => {
+			resultados.sort((b, a) => { return a.resultado - b.resultado });
+
+			const primero = parseInt(resultados[0].resultado);
+			const segundo = parseInt(resultados[1].resultado);
+			const tercero = parseInt(resultados[2].resultado);
+
+			var final_data = google.visualization.arrayToDataTable([
+				["Element", "Density", { role: "style" }],
+				["Pepe", segundo, "silver "],
+				["Ramona", primero, "gold "],
+				["Otis", tercero, "#b87333"]
+			]);
+
+			var view = new google.visualization.DataView(final_data);
+			view.setColumns([0, 1,
+				{
+					calc: "stringify",
+					sourceColumn: 1,
+					type: "string",
+					role: "annotation"
+				},
+				2]);
+
+			var options = {
+				width: 1000,
+				height: 150,
+				border: "none",
+				gridlines: { color: "rgb(0,0,0,0)" }, //Elimina las cuadrículas del gráfico
+				bar: { groupWidth: "none" },
+				legend: { position: "none" },
+				backgroundColor: "none",
+
+			};
+
+
+			var chart = new google.visualization.ColumnChart(document.getElementById("graphic_ranking_chart"));
+			chart.draw(view, options);
+		})
+
+}
+
+///////////////////////////////////////////////////////////
+///////////////////////DATA TABLE//////////////////////////
+
+function drawDataTable() {
+	var token = $("meta[name='_csrf']").attr("content");
+
+	fetch('/resultados_ranking',
+		{
+			headers: {
+				"Content-Type": "application/json; charset=utf-8",
+				"X-CSRF-TOKEN": token
+			},
+		})
+		.then(res => res.json())
+		.then(resultados => {
+			resultados.sort((b, a) => { return a.resultado - b.resultado });
+			console.log(resultados);
+			var contador = 4;
+			var table = document.getElementById('data_ranking_table');
+			for (let i = 3; i <= 9; i++) {
+				// Creando los 'td' que almacenará cada parte de la información del usuario actual
+				let cont = `<td>${contador}º</td>`;
+				let name = `<td>Usuario</td>`;
+				let resultado = `<td>${resultados[i].resultado}</td>`;
+
+				table.innerHTML += `<tr>${cont}${name}${resultado}</tr>`;
+				contador += 1;
+			}
+		})
+}
+
+///////////////////////////////////////////////////////////
 ////////////////////CONFETTI /////////////////////////
 /* Confetti by Patrik Svensson (http://metervara.net) */
 window.onload = function() {
@@ -349,105 +444,3 @@ window.onload = function() {
 		confetti.resize();
 	});
 };
-
-///////////////////////////////////////////////////////////
-////////////////////GRAPHIC CHART//////////////////////////
-
-// Load the Visualization API and the corechart package.
-google.charts.load('current', { 'packages': ['corechart'] });
-
-// Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(drawChart);
-google.charts.setOnLoadCallback(drawDataTable);
-
-
-// Callback that creates and populates a data table,
-// instantiates the pie chart, passes in the data and
-// draws it.
-function drawChart() {
-
-	var token = $("meta[name='_csrf']").attr("content");
-
-	fetch('/resultados_ranking',
-		{
-			headers: {
-				"Content-Type": "application/json; charset=utf-8",
-				"X-CSRF-TOKEN": token
-			},
-		})
-		.then(res => res.json())
-		.then(resultados => {
-			resultados.sort((b, a) => { return a.resultado - b.resultado });
-
-			const primero = parseInt(resultados[0].resultado);
-			const segundo = parseInt(resultados[1].resultado);
-			const tercero = parseInt(resultados[2].resultado);
-
-			var final_data = google.visualization.arrayToDataTable([
-				["Element", "Density", { role: "style" }],
-				["Pepe", segundo, "silver "],
-				["Ramona", primero, "gold "],
-				["Otis", tercero, "#b87333"]
-			]);
-
-			var view = new google.visualization.DataView(final_data);
-			view.setColumns([0, 1,
-				{
-					calc: "stringify",
-					sourceColumn: 1,
-					type: "string",
-					role: "annotation"
-				},
-				2]);
-
-			var options = {
-				width: 1000,
-				height: 150,
-				border: "none",
-				gridlines: { color: "rgb(0,0,0,0)" }, //Elimina las cuadrículas del gráfico
-				bar: { groupWidth: "none" },
-				legend: { position: "none" },
-				backgroundColor: "none",
-
-			};
-
-
-			var chart = new google.visualization.ColumnChart(document.getElementById("graphic_ranking_chart"));
-			chart.draw(view, options);
-		})
-
-
-
-
-}
-
-///////////////////////////////////////////////////////////
-///////////////////////DATA TABLE//////////////////////////
-
-function drawDataTable() {
-	var token = $("meta[name='_csrf']").attr("content");
-
-	fetch('/resultados_ranking',
-		{
-			headers: {
-				"Content-Type": "application/json; charset=utf-8",
-				"X-CSRF-TOKEN": token
-			},
-		})
-		.then(res => res.json())
-		.then(resultados => {
-			resultados.sort((b, a) => { return a.resultado - b.resultado });
-			console.log(resultados);
-			var contador = 4;
-			var table = document.getElementById('data_ranking_table');
-			for (let i = 3; i <= 9; i++) {
-				// Creando los 'td' que almacenará cada parte de la información del usuario actual
-				let cont = `<td>${contador}º</td>`;
-				let name = `<td>Usuario</td>`;
-				let resultado = `<td>${resultados[i].resultado}</td>`;
-
-				table.innerHTML += `<tr>${cont}${name}${resultado}</tr>`;
-				contador += 1;
-			}
-		})
-}

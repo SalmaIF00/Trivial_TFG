@@ -46,11 +46,12 @@
 
 				<!--BOTÓN PARA IR A ASIGNATURAS-->
 				<div th:if="${session.usuario.rol != 'Profesor'}">
-				<a th:href="@{/asignaturas}" class="btn btn-primary">¡A jugar!</a>
+					<a th:href="@{/asignaturas}" class="btn btn-primary">¡A jugar!</a>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<!--CHART-->
 	<div id="grafico" th:each="u:${usuario}" th:if="${session.usuario.rol != 'Profesor'}">
 		<div class="card text-center">
@@ -76,8 +77,6 @@
 					<!--BOTÓN PARA MOSTRAR GRÁFICO-->
 					<a href="#" class="btn btn-primary" onclick="grafico()">Gráfico</a>
 				</div>
-				
-				
 			</div>
 		</div>
 	</div>
@@ -87,11 +86,10 @@
 		<div id="copyright">
 			<div id="redes"><img th:src="@{/img/twitter.png}" alt="Imagen de twitter">
 				<img th:src="@{/img/facebook.png}" alt="Imagen de facebook"></div>
-			<h5 class="card-title" data-i18n="footer">Aviso legal | Política de privacidad | Accesibilidad | Usabilidad</h5>
+			<h5 class="card-title" data-i18n="footer">Aviso legal | Política de privacidad | Accesibilidad | Usabilidad
+			</h5>
 			<p class="card-text">&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano</p>
-	
 		</div>
-	
 	</footer>
 
 </body>

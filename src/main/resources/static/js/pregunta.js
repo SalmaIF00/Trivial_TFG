@@ -1,3 +1,6 @@
+///////////////////////////////////////////////////////////
+//////////////COLOREAR NAVBAR Y FOOTER/////////////////////
+
 document.addEventListener("DOMContentLoaded", function(){
 	var color_asignatura = document.getElementById("id_a").innerHTML;
 	console.log(color_asignatura);

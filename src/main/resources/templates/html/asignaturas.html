@@ -6,8 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<script type="text/javascript" th:src="@{/js/asignaturas.js}"></script>
-	<link rel="stylesheet" th:href="@{/css/Asignaturas.css}">
+	<link rel="stylesheet" th:href="@{/css/asignaturas.css}">
 	<link rel="stylesheet" th:href="@{/css/responsive/asignaturas.css}">
 	<title>Asignaturas</title>
 </head>
@@ -15,19 +14,16 @@
 <body>
 	<!--HEADER-->
 	<nav th:replace="html/navbar"></nav>
+
 	<!--ASIGNATURAS-->
 	<section>
 		<div id="asig">
-
 			<a id="color" th:each="asignatura:${asignaturas}"
 				th:href="@{/pregunta/{id_asignatura}(id_asignatura=${asignatura.id_asignatura})}">
 				<div class="boton_asignatura" onclick="color()">
 					<p th:text="${asignatura.nombre_asignatura}"></p>
 				</div>
 			</a>
-
-
-
 		</div>
 	</section>
 
@@ -39,11 +35,8 @@
 			<h5 class="card-title" data-i18n="footer">Aviso legal | Política de privacidad | Accesibilidad |
 				Usabilidad</h5>
 			<p class="card-text">&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano</p>
-
 		</div>
-
 	</footer>
-
 
 </body>
 

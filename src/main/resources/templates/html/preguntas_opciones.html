@@ -8,15 +8,15 @@
 
 	<title>Preguntas</title>
 
-	<link rel="stylesheet" th:href="@{/css/Preguntas_opciones.css}">
+	<link rel="stylesheet" th:href="@{/css/preguntas_opciones.css}">
 	<script th:src="@{/js/pregunta.js}"></script>
 </head>
 
 <body>
 	<!--HEADER-->
 	<nav th:replace="html/navbar"></nav>
-	<!--ASIGNATURAS-->
 
+	<!--ASIGNATURAS-->
 	<section>
 		<form class="row contenedor" th:action="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}"
 			method="get">
@@ -26,26 +26,22 @@
 				<a th:href="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}" method="POST">
 					<div class="col-12 pregunta" name="respuesta" th:text="${respuesta.respuesta}"
 						value="{resultado}(resultado=${respuesta.resultado}) "></div>
-
 				</a>
 			</div>
-
-
-
 		</form>
-		<section>
-			<!--FOOTER-->
-			<footer>
-				<div id="copyright">
-					<div id="redes"><img th:src="@{/img/twitter.png}" alt="Imagen de twitter">
-						<img th:src="@{/img/facebook.png}" alt="Imagen de facebook"></div>
-					<h5 class="card-title" data-i18n="footer">Aviso legal | Política de privacidad | Accesibilidad |
-						Usabilidad</h5>
-					<p class="card-text">&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano</p>
+	</section>
 
-				</div>
+	<!--FOOTER-->
+	<footer>
+		<div id="copyright">
+			<div id="redes"><img th:src="@{/img/twitter.png}" alt="Imagen de twitter">
+				<img th:src="@{/img/facebook.png}" alt="Imagen de facebook"></div>
+			<h5 class="card-title" data-i18n="footer">Aviso legal | Política de privacidad | Accesibilidad |
+				Usabilidad</h5>
+			<p class="card-text">&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano</p>
+		</div>
+	</footer>
 
-			</footer>
 </body>
 
 </html>
