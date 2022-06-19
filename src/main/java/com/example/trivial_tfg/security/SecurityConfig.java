@@ -36,8 +36,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                           "/preguntas_tf",
                           "/ranking",
                           "/ruleta").permitAll()
-//                  .antMatchers("/crear").hasAuthority("Administrador")
-//                  .antMatchers("/{/borrar/{id}").hasAuthority("Administrador")
                   .anyRequest().authenticated()
               .and()
               .formLogin()
@@ -52,19 +50,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                   .invalidateHttpSession(true)
                   .deleteCookies("JSESSIONID")
                   .clearAuthentication(true)
-                //  .logoutUrl("/logout")
-                 // .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                   .logoutSuccessUrl("/sesion?logout")
                   .permitAll();
               http.csrf().ignoringAntMatchers("/img/**");
   }
-  
-//  @Autowired
-//  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception { 
-//
-//      auth.userDetailsService(customUserDetailsService).passwordEncoder(passwordEncoder());     
-//  }
-  
+      
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();

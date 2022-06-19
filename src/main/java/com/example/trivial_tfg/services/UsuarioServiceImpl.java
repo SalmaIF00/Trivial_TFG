@@ -69,29 +69,5 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return usuarioRepository.getById(id_usuario);
 	}
 
-//	@Override
-//	public Usuario buscarNombreUsuario(String nombre_usuario) {
-//
-//		return usuarioRepository.findByUserName(nombre_usuario);
-//	}
-//
-//	@Override
-//	public Usuario actualizarUsuario(Usuario usuario) {
-//		return usuarioRepository.save(usuario);
-//	}
-//
-//	@Override
-//	public void borrarUsuario(Long id_usuario) {
-//		usuarioRepository.deleteById(id_usuario);
-//
-//	}
-//
-//
-//
-//	@Override
-//	public void asignarRol(Long id_usuario, Long id_rol) {
-//		Usuario usuario1 = usuarioRepository.buscar(id_usuario);
-//		rolRepository.saveUR(id_rol, usuario1.getId_usuario());
-//	}
 
 }

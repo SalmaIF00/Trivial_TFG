@@ -31,7 +31,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	// CONTROLADOR REGISTRAR USUARIO - OK
+	// CONTROLADOR REGISTRAR USUARIO 
 	@PostMapping("/registro")
 	public String registrar_usuario(Model model, HttpServletRequest request,
 			@RequestParam("nombre") String nombre,
@@ -45,7 +45,7 @@ public class UsuarioController {
 		return "redirect:/index";
 	}
 			
-	// CONTROLADOR INICIO SESION USUARIO - OK
+	// CONTROLADOR INICIO SESION USUARIO 
 	@PostMapping("/sesion")
 	public String iniciar_usuario(Model model, HttpServletRequest request, HttpSession httpSession, 
 			@RequestParam("nombre_usuario") String nombre,
