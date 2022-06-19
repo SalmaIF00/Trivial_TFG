@@ -5,16 +5,13 @@
 /****************SUBJECTS***************************/
 /***********OPOSITE-COLOR-SUBJECTS******************/
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Comfortaa:wght@600&family=Poppins&display=swap");
-section {
-  height: 90vh;
-}
-
 #carouselExampleIndicators {
   clear: both;
 }
 
 #container {
-  width: 100%;
+  width: 1920px;
+  height: 7.5em;
   clear: both;
 }
 #container #login, #container #signup {
@@ -114,9 +111,10 @@ h3 {
 #perfilUsuario {
   width: 50%;
   float: left;
+  font-size: 150%;
 }
 #perfilUsuario .card {
-  height: 80vh;
+  height: 80%;
 }
 
 #donut {
@@ -124,9 +122,12 @@ h3 {
 }
 
 #graphic_profile_chart {
-  width: 100%;
+  width: 50%;
   height: 60vh;
   margin-top: 3em;
+}
+#graphic_profile_chart div {
+  width: 100%;
 }
 #graphic_profile_chart div g:nth-child(1) rect {
   visibility: hidden;
@@ -209,9 +210,9 @@ body {
 
 .navbar {
   background-color: black !important;
-  width: 100%;
-  margin: 0 !important;
-  border-radius: 0 !important;
+  width: 1920px;
+  height: 7.5em;
+  margin-bottom: 0 !important;
   float: right;
 }
 .navbar div ul li .nav-link {
@@ -261,10 +262,14 @@ ol, ul {
 }
 
 #copyright {
+  width: 1920px;
+  margin: auto;
   height: 7.5em;
   color: white;
   padding: 0.5em;
   text-align: right;
+  position: fixed;
+  bottom: 0;
   background-color: black;
 }
 #copyright #redes {

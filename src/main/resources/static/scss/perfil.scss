@@ -7,8 +7,9 @@
 #perfilUsuario{
 	width: 50%;
 	float: left;
+	font-size: 150%;
 	.card{
-	height: 80vh;
+	height: 80%;
 	}
 }
 
@@ -20,10 +21,11 @@
 }
 
 #graphic_profile_chart{
-	width: 100%;
+	width: 50%;
 	height: 60vh;
 	margin-top: 3em;
 	div{
+		width: 100%;
 		g:nth-child(1){
 			rect{
 				visibility: hidden;
