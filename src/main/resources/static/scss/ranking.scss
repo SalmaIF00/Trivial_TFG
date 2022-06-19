@@ -1,14 +1,14 @@
-#container{
-	padding: 0.5em;
+section{
+	padding: 1em;
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
 h3{
-	font-size: 150%;
+	clear: both;
 	font-weight: bold;
 	color: white !important;
 	margin: 0 !important;
-	padding: 0 !important;
+	padding: 1em;
 	width: 100%;
 	text-align: center;
 }
@@ -29,7 +29,7 @@ h3{
 ////////////////////////////GRAPHIC CHART/////////////////////
 #graphic_ranking_chart{
 	width: 100%;
-	height: 50%;
+	height: 30%;
 	clear:both;
 	display: flex;
 	justify-content: center;

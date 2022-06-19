@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -24,7 +24,7 @@
 	<nav th:replace="html/navbar"></nav>
 	<div id="confetti"></div>
 
-	<div id="container">
+	<section>
 		<h3>RESULTADOS</h3>
 		<!--CHART-->
 		<div id="graphic_ranking_chart" style="width:400; height:300"></div>
@@ -37,15 +37,16 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
+	</section>
 	<!--FOOTER-->
 	<footer>
 		<div id="copyright">
 			<div id="redes"><img th:src="@{/img/twitter.png}" alt="Imagen de twitter">
 				<img th:src="@{/img/facebook.png}" alt="Imagen de facebook"></div>
-			<hr />
-			Aviso legal | Política de privacidad | Accesibilidad | Usabilidad<br />
-			&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano
+			<h5 class="card-title" data-i18n="footer">Aviso legal | Política de privacidad | Accesibilidad | Usabilidad
+			</h5>
+			<p class="card-text">&#169; Copyright 2022 | By Salma Idrissi & Jessica Piano</p>
+
 		</div>
 
 	</footer>

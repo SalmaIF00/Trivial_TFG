@@ -1,0 +1,23 @@
+@media screen and (max-width: 320px) {
+	body{
+		width: 320px !important;
+		height: 658px !important;
+	}
+	
+	section{
+		clear: both;
+	}
+	
+	.card{
+		width: 100% !important;
+	}
+	#copyright{
+		width: 320px !important;
+		clear:both;
+	}
+	
+}
+
+@media screen and (max-height: 320px) {
+	
+}
