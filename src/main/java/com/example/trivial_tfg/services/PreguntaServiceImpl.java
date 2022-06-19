@@ -1,5 +1,7 @@
 package com.example.trivial_tfg.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.transaction.Transactional;
@@ -23,21 +25,16 @@ public class PreguntaServiceImpl implements PreguntaService {
 	}
 
 	@Override
-	public Pregunta buscarPregunta(Long id_pregunta) {
-		Pregunta p = preguntaRepository.findById(id_pregunta).orElse(null);
+	public Pregunta buscarPregunta(Long[] id_preguntas) {
+		/* Buscamos un número random entre 0 a 9 */
+		Integer random = (int) Math.floor(Math.random() * 10);
+
+		/* Buscamos el id_pregunta recorriendo el array según el número random */
+		Long buscarID = id_preguntas[random];
+
+		Pregunta p = preguntaRepository.findById(buscarID).orElse(null);
+		
 		return p;
-	}
-
-	@Override
-	public Pregunta actualizarPregunta(Pregunta pregunta) {
-		
-		return preguntaRepository.save(pregunta);
-	}
-
-	@Override
-	public void borrarPregunta(Long id_pregunta) {
-		preguntaRepository.deleteById(id_pregunta);
-		
 	}
 
 	@Override

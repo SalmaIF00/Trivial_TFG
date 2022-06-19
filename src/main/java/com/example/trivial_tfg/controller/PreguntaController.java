@@ -24,16 +24,19 @@ public class PreguntaController {
 
 	// CONTROLADOR MOSTRAR PREGUNTAS ALEATORIAS
 	@GetMapping("/pregunta/{id_asignatura}")
-	public String pregunta(HttpSession session,	@PathVariable("id_asignatura") Long id_asignatura, Model model, HttpServletRequest request) {
+	public String pregunta(HttpSession session, @PathVariable("id_asignatura") Long id_asignatura, Model model,
+			HttpServletRequest request) {
 
 		@SuppressWarnings("unchecked")
 		Integer cont = (Integer) session.getAttribute("contador");
 		List<String> resp = (List<String>) session.getAttribute("respuesta");
 
+		/* Recuperamos session del contador */
 		if (cont == null) {
 			cont = 0;
 		}
 
+		/* Recuperamos session de las respuestas */
 		if (resp == null) {
 			resp = new ArrayList<>();
 		}
@@ -41,18 +44,7 @@ public class PreguntaController {
 		/* Esta función devolverá las 10 preguntas que correspondan a la asignatura */
 		Long[] id_preguntas = preguntaService.listarPreguntas(id_asignatura);
 
-		/* Buscamos un número random entre 0 a 9 */
-		Integer random = (int) Math.floor(Math.random() * 10);
-
-		/* Todos los números random se almacenarán en este array */
-		List<Integer> set = new ArrayList<>();
-		set.add(random);
-
-		/* Buscamos el id_pregunta recorriendo el array según el número random */
-		Long buscarID = id_preguntas[random];
-
-		/* Tras encontrar el id_pregunta se obtendrá la pregunta completa */
-		Pregunta p = preguntaService.buscarPregunta(buscarID);
+		Pregunta p = preguntaService.buscarPregunta(id_preguntas);
 
 		model.addAttribute("id_asignatura", id_asignatura);
 		model.addAttribute("respuesta", p.getRespuestas());
@@ -65,5 +57,22 @@ public class PreguntaController {
 			return "html/preguntas_opciones";
 		}
 	}
-	
+
+//	@PostMapping("/pregunta/{id_asignatura}")
+//	public String persistPregunta(@RequestParam("respuesta") String respuesta, HttpServletRequest request){
+//		// Recuperamos la sesión de respuestas
+//		List<Integer> resp = (List<Integer>) request.getSession().getAttribute("respuesta");
+//		Integer cont = (Integer) request.getSession().getAttribute("contador");
+//		
+//		if(respuesta != null) {
+//			request.getSession().setAttribute("respuesta", respuesta);
+//		}
+//		
+//		if(cont == 10) {
+//			return "html/ranking";
+//		}else {
+//			return "html/preguntas_opciones";
+//		}
+//	}
+
 }
