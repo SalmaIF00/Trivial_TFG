@@ -29,25 +29,19 @@
 
 	<form class="row contenedor" th:action="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}" method="get">
 		<span id="id_a" th:text="${id_asignatura}" hidden></span>
-		<div class="col-12 pregunta" th:text="${pregunta}">PREGUNTA</div>
+		<div class="col-12 " id="respuesta"th:text="${pregunta}">PREGUNTA</div>
 		<div class="col-6 " th:each="respuesta:${respuesta}">
-			<input class="checkbox-tools" type="radio" name="tools">
-			<label name="respuesta" class="for-checkbox-tools" for="tool-1" th:text="${respuesta.respuesta}"
-				value="{resultado}(resultado=${respuesta.resultado}) ">
+		 <a th:href="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}"    method="POST">
+    <div class="col-12 pregunta"   name="respuesta" th:text="${respuesta.respuesta}" value="{resultado}(resultado=${respuesta.resultado}) "></div>
+    
+</a>
 		</div>
 
 
-		<!--  <span id="container" th:each="respuesta:${respuesta}">
-			<option class="col op1" th:text="${respuesta.respuesta}" value="${respuesta.id_respuesta}"></option>
-		</span>-->
-		<!--	<div class="w-100"></div>-->
-		<a th:href="@{/pregunta/{id_asignatura}(id_asignatura=${id_asignatura})}" method="POST">
-			<div class="col-12 pregunta">Enviar</div>
-			<!--<input type="submit" name="enviar" value="Enviar" />-->
-		</a>
+>
 	</form>
 	<!--FOOTER-->
-	<footer>
+	<footer id="footer">
 		<div id="copyright">
 			<div id="redes"><img th:src="@{/img/twitter.png}" alt="Imagen de twitter">
 				<img th:src="@{/img/facebook.png}" alt="Imagen de facebook"></div>
