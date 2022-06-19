@@ -39,9 +39,8 @@ section{
 ///////////////////////////////////////////////////////////////
 ////////////////////////////MODAL//////////////////////////////
 .modal-header, .modal-footer{
-	background-color: $principal-background;
-	opacity: 0.5;
-	color: $letter;
+	background-color: $modal;
+	color: black;
 	.close{
 		color: white !important;
 	}

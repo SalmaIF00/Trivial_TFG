@@ -34,9 +34,8 @@ section {
 }
 
 .modal-header, .modal-footer {
-  background-color: black;
-  opacity: 0.5;
-  color: white;
+  background-color: #64BBBB;
+  color: black;
 }
 .modal-header .close, .modal-footer .close {
   color: white !important;
@@ -113,6 +112,7 @@ h3 {
 }
 
 #perfilUsuario {
+  margin: auto;
   width: 50%;
   height: 80%;
   float: left;
@@ -213,8 +213,12 @@ body {
   font-family: "Poppins", "Amatic SC", "Comfortaa" !important;
   width: 1920px;
   height: 1080px;
-  font-size: 150% !important;
+  font-size: 200% !important;
   margin: auto !important;
+}
+
+h5 {
+  font-size: 100% !important;
 }
 
 .navbar {
@@ -271,6 +275,7 @@ ol, ul {
 }
 
 #copyright {
+  clear: both;
   width: 1920px;
   margin: auto;
   height: 10%;

@@ -16,8 +16,13 @@ body{
 	font-family: 'Poppins', 'Amatic SC', 'Comfortaa' !important;
 	width: 1920px;
 	height: 1080px;
-	font-size: 150% !important;
+	font-size: 200% !important;
 	margin: auto !important;
+}
+
+
+h5{
+	font-size: 100% !important;
 }
 
 
@@ -87,6 +92,8 @@ ol, ul{
 ///////////////////////////////////////////////////////////////
 ////////////////////////////FOOTER/////////////////////////////
 #copyright{
+	
+	clear: both;
 	width: 1920px;
 	margin: auto;
 	height: 10%;

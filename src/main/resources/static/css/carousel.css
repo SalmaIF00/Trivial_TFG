@@ -72,7 +72,7 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	width: 100%;
-	height: 40em;
+	height: 25em;
 }
 
 #carousel_dos{
@@ -81,7 +81,7 @@ body {
 	background-repeat: no-repeat;
 	width: 100%;
 	bottom: 0;
-	height: 40em;
+	height: 25em;
 }
 
 #carousel_tres{
@@ -91,5 +91,5 @@ body {
 	background-position: center;
 	width: 100%;
 	bottom: 20%;
-	height: 40em;
+	height: 25em;
 }

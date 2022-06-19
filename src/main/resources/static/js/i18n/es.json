@@ -1,9 +1,9 @@
 {
 	"app-title": "Trivial",
-	"inicio" : "INICIO",
-	"asignaturas": "ASIGNATURAS",
-	"sesion": "INICIO SESIÓN",
-	"registro": "REGÍSTRATE",
+	"inicio" : "Inicio",
+	"asignaturas": "Asignaturas",
+	"sesion": "Inicio de sesión",
+	"registro": "Regístrate",
 	"perfil": "Mi perfil",
 	"config": "Configuración",
 	"cerrar_sesion": "Cerrar sesión",

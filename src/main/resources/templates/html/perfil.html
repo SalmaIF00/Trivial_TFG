@@ -52,7 +52,7 @@
 		</div>
 	</div>
 	<!--CHART-->
-	<div id="grafico" th:each="u:${usuario}">
+	<div id="grafico" th:each="u:${usuario}" th:if="${session.usuario.rol != 'Profesor'}">
 		<div class="card text-center">
 			<div class="card-header">
 				<p>Resultados</p>
